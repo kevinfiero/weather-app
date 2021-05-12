@@ -1,0 +1,9 @@
+.app{
+  width: 325px;
+  button{
+    float: right;
+    margin-top: 10px;
+  }
+}
+
+
