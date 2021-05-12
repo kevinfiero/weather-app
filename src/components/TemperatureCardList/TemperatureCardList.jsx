@@ -1,26 +1,32 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import TemperatureCard from '../TemperatureCard/TemperatureCard'
-import styles from './TemperatureCardList.css'
+import { Grid, makeStyles } from '@material-ui/core'
 
-const TemperatureCardList = ({zipCodeArray}) => {
+const useStyles = makeStyles({
+  gridItem: {
+    margin: 10
+  },
 
-  const cardElements = zipCodeArray.map((card) => (
-    <li key={card}>
+  gridContainer: {
+    justifyContent: "center"
+  }
+})
+
+const TemperatureCardList = ({currentWeatherArray}) => {
+  const classes = useStyles();
+
+
+  const cardElements = currentWeatherArray.map((card) => (
+    <Grid item className={classes.gridItem}>
       <TemperatureCard 
-      zipCodeArray={card}
-      weatherImg="https://www.flaticon.com/svg/vstatic/svg/3313/3313896.svg?token=exp=1620800941~hmac=67fce7cbb0b878ddbaac9e66b1789bc7"
-      condition="Sunny"
-      temperature="75"
-      humidity="60"
-      windSpeed="2"
-      
+      weatherInfo = {card}
       />
-    </li>
+    </Grid>
 ))
   return (
     <>
-      <ul className={styles.TemperatureCardList}>{cardElements}</ul>
+      <Grid container className = {classes.gridContainer}>{cardElements}</Grid>
     </>
 
   )

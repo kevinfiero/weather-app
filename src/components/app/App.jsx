@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import { findCurrentWeather } from '../../weatherApi';
 import Search from '../search/Search';
 import TemperatureCardList from '../TemperatureCardList/TemperatureCardList';
 
 export default function App() {
 
   const [zipCode, setZipCode] = useState("");
-  const [zipCodeArray, setZipCodeArray] = useState([])
+  const [currentWeatherArray, setCurrentWeatherArray] = useState([])
   const [zipCodeTextError, setZipCodeTextError] = useState(false);
   const [zipCodeSubmitError, setZipCodeSubmitError] = useState(true)
   const [zipCodeTextErrorMessage, setZipCodeTextErrorMessage] = useState("");
@@ -19,13 +20,10 @@ export default function App() {
       setZipCodeTextErrorMessage('');
       setZipCodeTextError(false);
       setZipCodeSubmitError(true);
-    } else if (!isNaN(zipCode) && zipCode.length === 5 && zipCodeArray.includes(zipCode)) {
+    } else if (!isNaN(zipCode) && zipCode.length === 5 && (currentWeatherArray.filter(e => e.zipCode === zipCode).length > 0)) {
       setZipCodeTextError(true);
       setZipCodeSubmitError(true);
       setZipCodeTextErrorMessage('This zip code is already displayed');
-
-
-
     } else if(!isNaN(zipCode) && zipCode.length === 5){
       setZipCodeTextErrorMessage('');
       setZipCodeTextError(false);
@@ -39,8 +37,15 @@ export default function App() {
   }
 
   const handleZipCodeSubmit = () => {
-    setZipCodeArray([...zipCodeArray, zipCode]);
+    findCurrentWeather(zipCode)
+    .then(res => {
+      setCurrentWeatherArray([...currentWeatherArray, res])
+    }  
+
+    )
     setZipCode("");
+    
+    
   }
 
   return (
@@ -54,7 +59,7 @@ export default function App() {
         handleZipCodeSubmit={handleZipCodeSubmit}
       />
       <TemperatureCardList 
-      zipCodeArray={zipCodeArray} 
+      currentWeatherArray={currentWeatherArray} 
       />
     </>
   )

@@ -6,7 +6,7 @@ import { CardContent, CardMedia, Grid, makeStyles } from '@material-ui/core';
 const useStyles = makeStyles({
   card: {
     maxWidth: 345,
-    height: 500,
+    height: 450,
     direction: "column",
     textAlign: "center",
     justify: "center",
@@ -21,28 +21,28 @@ const useStyles = makeStyles({
   }
 });
 
-const TemperatureCard = ({ zipCodeArray, weatherImg, condition, temperature, humidity, windSpeed }) => {
+const TemperatureCard = ({weatherInfo}) => {
   const classes = useStyles();
   return (
     <Card className={classes.card}>
-      <h1>{zipCodeArray}</h1>
+      <h1>{weatherInfo.zipCode}</h1>
     <CardMedia
-      image={weatherImg}
+      image={weatherInfo.icon}
       className={classes.media}
     />
     <CardContent>
       <div>Temperature</div>
-      <div>{`${temperature}F`}</div>
-      <div>{condition}</div>
+      <div>{`${weatherInfo.temperature}°F`}</div>
+      <div>{weatherInfo.condition}</div>
     </CardContent>
     <Grid container direction="row" justify="center" alignItems="center">
       <CardContent>
         <div>Humidity</div>
-        <div>{`${humidity}%`}</div>
+        <div>{`${weatherInfo.humidity}%`}</div>
       </CardContent>
       <CardContent>
         <div>Wind</div>
-        <div>{`${windSpeed} MPH`}</div>
+        <div>{`${weatherInfo.wind} MPH`}</div>
       </CardContent >
     </Grid>
   </Card>
