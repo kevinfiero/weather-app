@@ -13,7 +13,7 @@ const useStyles = makeStyles({
   }
 })
 
-const TemperatureCardList = ({currentWeatherArray}) => {
+const TemperatureCardList = ({currentWeatherArray, handleDeleteCard}) => {
   const classes = useStyles();
 
 
@@ -21,6 +21,7 @@ const TemperatureCardList = ({currentWeatherArray}) => {
     <Grid item key={card.zipCode} className={classes.gridItem}>
       <TemperatureCard 
       weatherInfo = {card}
+      handleDeleteCard = {handleDeleteCard}
       />
     </Grid>
 ))

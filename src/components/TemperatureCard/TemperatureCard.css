@@ -1,9 +1,9 @@
 .fadeInImage {
-  animation: fadeIn 5s;
-  -webkit-animation: fadeIn 5s;
-  -moz-animation: fadeIn 5s;
-  -o-animation: fadeIn 5s;
-  -ms-animation: fadeIn 5s;
+  animation: fadeIn 4s;
+  -webkit-animation: fadeIn 4s;
+  -moz-animation: fadeIn 4s;
+  -o-animation: fadeIn 4s;
+  -ms-animation: fadeIn 4s;
 }
 @keyframes fadeIn {
   0% {opacity:0;}
@@ -28,4 +28,36 @@
 @-ms-keyframes fadeIn {
   0% {opacity:0;}
   100% {opacity:1;}
+}
+
+.fadeOutImage {
+  animation: fadeOut 4s;
+  -webkit-animation: fadeOut 4s;
+  -moz-animation: fadeOut 4s;
+  -o-animation: fadeOut 4s;
+  -ms-animation: fadeOut 4s;
+}
+@keyframes fadeOut {
+  0% {opacity:1;}
+  100% {opacity:0;}
+}
+
+@-moz-keyframes fadeOut {
+  0% {opacity:1;}
+  100% {opacity:0;}
+}
+
+@-webkit-keyframes fadeOut {
+  0% {opacity:1;}
+  100% {opacity:0;}
+}
+
+@-o-keyframes fadeOut {
+  0% {opacity:1;}
+  100% {opacity:0;}
+}
+
+@-ms-keyframes fadeOut {
+  0% {opacity:1;}
+  100% {opacity:0;}
 }

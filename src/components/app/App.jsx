@@ -38,14 +38,14 @@ export default function App() {
 
   const handleZipCodeSubmit = () => {
     findCurrentWeather(zipCode)
-    .then(res => {
-      setCurrentWeatherArray([...currentWeatherArray, res])
-    }  
-
-    )
+      .then(res => {
+        setCurrentWeatherArray([...currentWeatherArray, res])
+      })
     setZipCode("");
-    
-    
+  }
+
+  const handleDeleteCard = (zip) => {
+    setCurrentWeatherArray(currentWeatherArray.filter((e) => e.zipCode !== zip));
   }
 
   return (
@@ -60,6 +60,7 @@ export default function App() {
       />
       <TemperatureCardList 
       currentWeatherArray={currentWeatherArray} 
+      handleDeleteCard={handleDeleteCard}
       />
     </>
   )
