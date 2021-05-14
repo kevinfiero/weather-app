@@ -37,11 +37,17 @@ export default function App() {
   }
 
   const handleZipCodeSubmit = () => {
-    findCurrentWeather(zipCode)
+
+      findCurrentWeather(zipCode)
       .then(res => {
-        setCurrentWeatherArray([...currentWeatherArray, res])
+        if(res){
+          setCurrentWeatherArray([...currentWeatherArray, res])
+          setZipCode("");
+        } else{
+          setZipCodeTextError(true)
+          setZipCodeTextErrorMessage("Not a valid zip code")
+        }
       })
-    setZipCode("");
   }
 
   const handleDeleteCard = (zip) => {

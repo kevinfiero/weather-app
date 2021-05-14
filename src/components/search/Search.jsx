@@ -20,7 +20,13 @@ const Search = ({ zipCode, zipCodeTextError, zipCodeSubmitError, zipCodeTextErro
         
         />
 
-      <Button onClick={handleZipCodeSubmit} variant="contained" color="primary" disabled={zipCodeSubmitError}>Submit</Button>
+      <Button 
+        onClick={handleZipCodeSubmit} 
+        variant="contained" 
+        color="primary" 
+        disabled={zipCodeSubmitError}>
+        Add
+      </Button>
     </div>
     )
 }

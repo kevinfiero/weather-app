@@ -2,6 +2,9 @@ export const findCurrentWeather = (zipCode) => {
   return fetch(`https://api.openweathermap.org/data/2.5/weather?zip=${zipCode}&appid=${process.env.API_KEY}`)
   .then(res => res.json())
     .then(res => {
+      if(res.cod==="404"){
+        return false
+      } else {
       return (
         {
           zipCode: zipCode,
@@ -12,6 +15,6 @@ export const findCurrentWeather = (zipCode) => {
           wind: Math.round(res.wind.speed),
           humidity: res.main.humidity
         }
-      )
+      )}
     })
 }
