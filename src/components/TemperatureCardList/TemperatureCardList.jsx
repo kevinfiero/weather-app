@@ -18,12 +18,13 @@ const TemperatureCardList = ({currentWeatherArray}) => {
 
 
   const cardElements = currentWeatherArray.map((card) => (
-    <Grid item className={classes.gridItem}>
+    <Grid item key={card.zipCode} className={classes.gridItem}>
       <TemperatureCard 
       weatherInfo = {card}
       />
     </Grid>
 ))
+
   return (
     <>
       <Grid container className = {classes.gridContainer}>{cardElements}</Grid>

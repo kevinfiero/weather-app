@@ -7,7 +7,7 @@ const Search = ({zipCode, zipCodeTextError, zipCodeSubmitError, zipCodeTextError
 
 return (
 
-    <div className={styles.app} >
+    <div className={styles.search} >
       <TextField
         inputProps={{ maxLength: 5 }}
         onChange={zipCodeTextChange}

@@ -1,5 +1,6 @@
-.app{
+.search{
   width: 325px;
+  margin: auto;
   button{
     float: right;
     margin-top: 10px;
