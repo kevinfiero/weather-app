@@ -2,14 +2,16 @@ import React, { useEffect, useState } from 'react';
 import { findCurrentWeather } from '../../weatherApi';
 import Search from '../search/Search';
 import TemperatureCardList from '../TemperatureCardList/TemperatureCardList';
+import Toggle from '../toggle/Toggle';
 
 export default function App() {
 
   const [zipCode, setZipCode] = useState("");
-  const [currentWeatherArray, setCurrentWeatherArray] = useState([])
+  const [currentWeatherArray, setCurrentWeatherArray] = useState([]);
   const [zipCodeTextError, setZipCodeTextError] = useState(false);
-  const [zipCodeSubmitError, setZipCodeSubmitError] = useState(true)
+  const [zipCodeSubmitError, setZipCodeSubmitError] = useState(true);
   const [zipCodeTextErrorMessage, setZipCodeTextErrorMessage] = useState("");
+  const [isFahrenheit, setIsFahrenheit] = useState(true);
 
   useEffect(() => {
     if(isNaN(zipCode)){
@@ -34,6 +36,14 @@ export default function App() {
 
   const zipCodeTextChange = ({ target }) => {
     setZipCode(target.value);
+  }
+
+  const handleTemperatureSwitch = () => {
+    if(isFahrenheit){
+      setIsFahrenheit(false);
+    } else{
+      setIsFahrenheit(true);
+    }
   }
 
   const handleZipCodeSubmit = () => {
@@ -64,10 +74,15 @@ export default function App() {
         zipCodeTextChange={zipCodeTextChange}
         handleZipCodeSubmit={handleZipCodeSubmit}
       />
+      <Toggle 
+      isFahrenheit={isFahrenheit}
+      handleTemperatureSwitch={handleTemperatureSwitch}
+      />
       <TemperatureCardList 
       currentWeatherArray={currentWeatherArray} 
       handleDeleteCard={handleDeleteCard}
       />
+
     </>
   )
 }
