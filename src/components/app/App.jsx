@@ -81,6 +81,7 @@ export default function App() {
       <TemperatureCardList 
       currentWeatherArray={currentWeatherArray} 
       handleDeleteCard={handleDeleteCard}
+      isFahrenheit={isFahrenheit}
       />
 
     </>

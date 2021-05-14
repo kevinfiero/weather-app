@@ -7,6 +7,7 @@ import windIcon from '../../assets/wind.svg'
 import styles from './TemperatureCard.css'
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 import IconButton from '@material-ui/core/IconButton';
+import { BorderVerticalTwoTone } from '@material-ui/icons';
 
 const useStyles = makeStyles({
   card: {
@@ -27,11 +28,16 @@ const useStyles = makeStyles({
   },
   icons: {
     width: "20px",
-    height: "20px"
+    height: "20px",
+    padding: "0px"
+  },
+  statCards: {
+    padding: "10px",
   }
+
 });
 
-const TemperatureCard = ({weatherInfo, handleDeleteCard}) => {
+const TemperatureCard = ({weatherInfo, handleDeleteCard, isFahrenheit}) => {
   const classes = useStyles();
   const [isVisible, setIsVisible] = useState(true)
 
@@ -40,6 +46,18 @@ const TemperatureCard = ({weatherInfo, handleDeleteCard}) => {
       setTimeout(() => {handleDeleteCard(weatherInfo.zipCode)}, 3000);
     }
   }, [isVisible])
+
+  let temperature;
+  let wind;
+
+  if(isFahrenheit){
+    temperature = <div>{`${weatherInfo.temperature}°F`}</div>
+    wind = <div>{`${weatherInfo.wind} mph`}</div>
+  } else {
+    temperature = <div>{`${weatherInfo.temperatureC}°C`}</div>
+    wind = <div>{`${weatherInfo.windK} km/h`}</div>
+
+  }
 
   return (
     <div className={styles.grow} >
@@ -52,22 +70,23 @@ const TemperatureCard = ({weatherInfo, handleDeleteCard}) => {
           className={classes.media}
         />
         <CardContent>
-          <div>{`${weatherInfo.temperature}°F`}</div>
+          {temperature}
           <div>{weatherInfo.condition}</div>
         </CardContent>
         <Grid container direction="row" justify="center" alignItems="center">
-          <CardContent>
+          <div className={classes.statCards}>
             <img src={humidityIcon} className={classes.icons} />
             <div>{`${weatherInfo.humidity}%`}</div>
-          </CardContent>
-          <CardContent>
+          </div>
+          <div className={classes.statCards}>
             <img src={windIcon} className={classes.icons} />
-            <div>{`${weatherInfo.wind} MPH`}</div>
-          </CardContent >
-          <IconButton onClick={() => {setIsVisible(false); }}>
+            {wind}          
+          </div >
+
+        </Grid>
+        <IconButton onClick={() => {setIsVisible(false); }}>
             <HighlightOffIcon fontSize="small" color="error" />
           </IconButton>
-        </Grid>
       </Card>
     </div>
     </div>
