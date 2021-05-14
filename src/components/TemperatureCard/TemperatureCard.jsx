@@ -37,11 +37,12 @@ const TemperatureCard = ({weatherInfo, handleDeleteCard}) => {
 
   useEffect(() => {
     if(isVisible === false){
-      setTimeout(() => {handleDeleteCard(weatherInfo.zipCode)}, 4000);
+      setTimeout(() => {handleDeleteCard(weatherInfo.zipCode)}, 3000);
     }
   }, [isVisible])
 
   return (
+    <div className={styles.grow} >
     <div className={isVisible?styles.fadeInImage:styles.fadeOutImage}>
       <Card className={classes.card}>
         <h2>{weatherInfo.city}</h2>
@@ -69,6 +70,8 @@ const TemperatureCard = ({weatherInfo, handleDeleteCard}) => {
         </Grid>
       </Card>
     </div>
+    </div>
+
   )
 }
 

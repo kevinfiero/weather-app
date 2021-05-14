@@ -31,11 +31,11 @@
 }
 
 .fadeOutImage {
-  animation: fadeOut 4s;
-  -webkit-animation: fadeOut 4s;
-  -moz-animation: fadeOut 4s;
-  -o-animation: fadeOut 4s;
-  -ms-animation: fadeOut 4s;
+  animation: fadeOut 3s;
+  -webkit-animation: fadeOut 3s;
+  -moz-animation: fadeOut 3s;
+  -o-animation: fadeOut 3s;
+  -ms-animation: fadeOut 3s;
 }
 @keyframes fadeOut {
   0% {opacity:1;}
@@ -61,3 +61,11 @@
   0% {opacity:1;}
   100% {opacity:0;}
 }
+
+.grow { 
+  transition: all .3s ease-in-out; 
+  }
+  
+  .grow:hover { 
+  transform: scale(1.05); 
+  }
