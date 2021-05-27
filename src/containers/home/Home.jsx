@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { findCurrentWeather } from '../weatherApi';
-import Search from '../components/search/Search';
-import TemperatureCardList from '../components/TemperatureCardList/TemperatureCardList';
-import Toggle from '../components/toggle/Toggle';
+import { findCurrentWeather } from '../../weatherApi';
+import Search from '../../components/search/Search';
+import TemperatureCardList from '../../components/TemperatureCardList/TemperatureCardList';
+import Toggle from '../../components/toggle/Toggle';
 
 export default function Home() {
 
