@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Grid } from '@material-ui/core'
+import { Card, Grid } from '@material-ui/core'
+import HourlyCard from '../HourlyCard/HourlyCard'
 
 const HourlyCardList = ({hourlyWeatherArray, loading}) => {
 
@@ -9,7 +10,7 @@ const HourlyCardList = ({hourlyWeatherArray, loading}) => {
 if(!loading){
   cardElements = hourlyWeatherArray.map((card) => (
     <Grid item key={`${card.dayOfWeek}${card.time}`}>
-        <h1>{card.dayOfWeek}</h1>
+        <HourlyCard card={card}/>
     </Grid>
   ))
 }
@@ -18,7 +19,7 @@ console.log(loading, hourlyWeatherArray);
 
   return (
     <>
-      {!loading ? <Grid container>{cardElements}</Grid> : 'Please Wait'}
+      {!loading ? <Grid container direction="column">{cardElements}</Grid> : 'Please Wait'}
     </>
   )
 }
