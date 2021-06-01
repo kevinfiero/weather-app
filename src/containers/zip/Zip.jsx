@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router';
 import PropTypes from 'prop-types'
 import ZipInfo from '../../components/zipInfo/ZipInfo';
-import { findWeatherForecast } from '../../weatherApi';
+import { findWeatherForecast, findCurrentWeather } from '../../weatherApi';
 import HourlyCardList from '../../components/HourlyCardList/HourlyCardList';
 
 
@@ -15,7 +15,7 @@ const Zip = props => {
   const [loading, setLoading] = useState(true)
 
 
-  useEffect(() => {
+  useEffect(async() => {
     setLoading(true)
     findWeatherForecast(id)
     .then(res => {
@@ -24,6 +24,14 @@ const Zip = props => {
       setHourlyWeatherArray(res.hourlyWeatherArray)
       setLoading(false)
     })
+    .then(
+      findCurrentWeather(id)
+    )
+    .then(res =>{
+      console.log('test');
+    })
+    
+
   }, [])
 
   return (
