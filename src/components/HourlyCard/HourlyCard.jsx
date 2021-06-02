@@ -27,10 +27,14 @@ const useStyles = makeStyles({
     width: "20px",
     height: "20px",
     padding: "0px",
+    margin: "5px"
   },
   row: {
     display: "flex",
     direction: "row",
+  },
+  text: {
+    margin: "auto"
   }
 });
 
@@ -44,11 +48,11 @@ const HourlyCard = ({ card }) => {
         <Grid item className={classes.padding}><img src={card.icon} className={classes.media} /></Grid>
         <Grid item className={classes.row}>
           <img src={humidityIcon} className={classes.icons} />
-          <div>{`${card.humidity}%`}</div>
+          <div className={classes.text}>{`${card.humidity}%`}</div>
         </Grid>
         <Grid item className={classes.row}>
           <img src={windIcon} className={classes.icons} />          
-          <div>{`${card.wind} mph`}</div>
+          <div className={classes.text}>{`${card.wind} mph`}</div>
         </Grid>
       </Grid>
     </Card>

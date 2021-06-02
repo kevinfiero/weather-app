@@ -18,7 +18,8 @@ const useStyles = makeStyles({
     textAlign: "center",
     justify: "center",
     alignItems: "center",
-    margin: "auto"
+    margin: "auto",
+    textDecoration: "none",
   },
   media: {
     height: "20%",
@@ -35,7 +36,8 @@ const useStyles = makeStyles({
     padding: "10px",
   },
   link: {
-    textDecoration: "none"
+    textDecoration: "none",
+    color: "black"
   }
 
 });
@@ -62,11 +64,11 @@ const TemperatureCard = ({ weatherInfo, handleDeleteCard, isFahrenheit }) => {
   }
 
   return (
-    <Link to={`/zip/${weatherInfo.zipCode}`} className={classes.link} >
-      <div className={styles.grow} >
-        <div className={isVisible ? styles.fadeInImage : styles.fadeOutImage}>
-          <Card className={classes.card}>
-            <h2>{weatherInfo.city}</h2>
+    <div className={styles.grow} >
+      <div className={isVisible ? styles.fadeInImage : styles.fadeOutImage}>
+        <Card className={classes.card}>
+          <Link to={`/zip/${weatherInfo.zipCode}`} className={classes.link} >
+            <h2 className={classes.link}>{weatherInfo.city}</h2>
             <h3>{weatherInfo.zipCode}</h3>
             <CardMedia
               image={weatherInfo.icon}
@@ -85,15 +87,14 @@ const TemperatureCard = ({ weatherInfo, handleDeleteCard, isFahrenheit }) => {
                 <img src={windIcon} className={classes.icons} />
                 {wind}
               </div >
-
             </Grid>
-            <IconButton onClick={() => { setIsVisible(false); }}>
-              <HighlightOffIcon fontSize="small" color="error" />
-            </IconButton>
-          </Card>
-        </div>
+          </Link>
+          <IconButton onClick={() => { setIsVisible(false); }}>
+            <HighlightOffIcon fontSize="small" color="error" />
+          </IconButton>
+        </Card>
       </div>
-    </Link>
+    </div>
 
   )
 }

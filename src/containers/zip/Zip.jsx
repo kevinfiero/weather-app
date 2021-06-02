@@ -4,41 +4,83 @@ import PropTypes from 'prop-types'
 import ZipInfo from '../../components/zipInfo/ZipInfo';
 import { findWeatherForecast, findCurrentWeather } from '../../weatherApi';
 import HourlyCardList from '../../components/HourlyCardList/HourlyCardList';
+import ZipCurrentWeather from '../../components/ZipCurrentWeather/ZipCurrentWeather';
+import { makeStyles } from '@material-ui/core';
+
+const useStyles = makeStyles({
+  row: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyItems: "center",
+    justifyContent: "space-evenly",
+    margin: "auto",
+    width: "500px"
+    
+  },
+  column: {
+    display: "flex",
+    flexDirection: "column"
+  }
+
+})
 
 
-const Zip = props => {
+const Zip = () => {
+  const classes = useStyles();
   const { id } = useParams();
-
   const [zipCode, setZipCode] = useState("");
   const [city, setCity] = useState("");
   const [hourlyWeatherArray, setHourlyWeatherArray] = useState([]);
-  const [loading, setLoading] = useState(true)
+  const [hourlyLoading, setHourlyLoading] = useState(true);
+  const [currentLoading, setCurrentLoading] = useState(true);
+  const [currentWeather, setCurrentWeather] = useState([]);
 
-
-  useEffect(async() => {
-    setLoading(true)
+  const getHourlyWeather = () => {
+    setHourlyLoading(true)
     findWeatherForecast(id)
     .then(res => {
       setZipCode(res.zipCode)
       setCity(res.city)
       setHourlyWeatherArray(res.hourlyWeatherArray)
-      setLoading(false)
+      setHourlyLoading(false)
     })
-    .then(
-      findCurrentWeather(id)
-    )
-    .then(res =>{
-      console.log('test');
+  }
+
+  const getCurrentWeather = () => {
+    setCurrentLoading(true)
+    findCurrentWeather(id)
+    .then(res => {
+      setCurrentWeather(res);
+      setCurrentLoading(false);
     })
     
 
+  }
+
+
+  useEffect(() => {
+    getHourlyWeather();
+    getCurrentWeather();
+  
   }, [])
 
   return (
-    <div>
-      <ZipInfo zip={zipCode} city={city} />
-      <HourlyCardList hourlyWeatherArray = {hourlyWeatherArray} loading = {loading} />
-    </div>
+    <>
+
+    {!(currentLoading && hourlyLoading)? 
+        <div className={classes.column}>
+        <div className={classes.row}>
+          <ZipInfo zip={zipCode} city={city} />
+          <ZipCurrentWeather currentWeather = {currentWeather}/>
+        </div>
+        <HourlyCardList hourlyWeatherArray = {hourlyWeatherArray} loading = {hourlyLoading} />
+      </div> :
+      <div></div>
+  
+  }
+    </>
+
   )
 }
 

@@ -34,7 +34,7 @@ if(!loading){
 }
   return (
     <>
-      {!loading ? <Grid container className = {classes.grid} direction="column">{cardElements}</Grid> : 'Please Wait'}
+      <Grid container className = {classes.grid} direction="column">{cardElements}</Grid>
     </>
   )
 }

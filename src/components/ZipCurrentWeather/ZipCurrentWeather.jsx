@@ -1,11 +1,62 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Card, CardMedia, Grid, makeStyles } from '@material-ui/core'
+import humidityIcon from '../../assets/humidity.svg'
+import windIcon from '../../assets/wind.svg'
 
-const ZipCurrentWeather = props => {
+const useStyles = makeStyles({
+  card: {
+    maxWidth: 345,
+    height: 250,
+    width: 180,
+    direction: "column",
+    textAlign: "center",
+    justify: "center",
+    alignItems: "center",
+
+  },
+  media: {
+    height: "70px",
+    width: "70px",
+    margin: "auto",
+    backgroundSize: "contain",
+  },
+  icons: {
+    width: "20px",
+    height: "20px",
+    padding: "0px"
+  },
+  statCards: {
+    padding: "10px",
+  },
+  link: {
+    textDecoration: "none"
+  }
+
+});
+
+const ZipCurrentWeather = ({currentWeather}) => {
+  console.log(currentWeather)
+  const classes = useStyles();
+
   return (
-    <div>
-      
-    </div>
+    <Card className={classes.card}>
+      <h2>Current</h2>
+      <img src={currentWeather.icon} className={classes.media}/>
+      <div>{`${currentWeather.temperature}°F`}</div>
+      <div>{currentWeather.condition}</div>
+      <Grid container direction="row" justify="center" alignItems="center">
+      <div className={classes.statCards}>
+        <img src={humidityIcon} className={classes.icons} />
+        <div>{`${currentWeather.humidity}%`}</div>
+      </div>
+
+      <div className={classes.statCards}>
+        <img src={windIcon} className={classes.icons} />
+        <div>{`${currentWeather.wind} mph`}</div>
+      </div>
+      </Grid>
+    </Card>
   )
 }
 
