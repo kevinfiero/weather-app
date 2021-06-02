@@ -35,25 +35,35 @@ const useStyles = makeStyles({
 
 });
 
-const ZipCurrentWeather = ({currentWeather}) => {
-  console.log(currentWeather)
+const ZipCurrentWeather = ({currentWeather, isFahrenheit}) => {
   const classes = useStyles();
+
+  let temperature;
+  let wind;
+
+  if (isFahrenheit) {
+    temperature = <div>{`${currentWeather.temperature}°F`}</div>
+    wind = <div>{`${currentWeather.wind} mph`}</div>
+  } else {
+    temperature = <div>{`${currentWeather.temperatureC}°C`}</div>
+    wind = <div>{`${currentWeather.windK} km/h`}</div>
+  }
 
   return (
     <Card className={classes.card}>
       <h2>Current</h2>
       <img src={currentWeather.icon} className={classes.media}/>
-      <div>{`${currentWeather.temperature}°F`}</div>
+      <div>{temperature}</div>
       <div>{currentWeather.condition}</div>
       <Grid container direction="row" justify="center" alignItems="center">
       <div className={classes.statCards}>
         <img src={humidityIcon} className={classes.icons} />
-        <div>{`${currentWeather.humidity}%`}</div>
+        <div>{wind}</div>
       </div>
 
       <div className={classes.statCards}>
         <img src={windIcon} className={classes.icons} />
-        <div>{`${currentWeather.wind} mph`}</div>
+        <div>{`${wind} mph`}</div>
       </div>
       </Grid>
     </Card>

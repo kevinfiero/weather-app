@@ -35,6 +35,15 @@ const Zip = () => {
   const [hourlyLoading, setHourlyLoading] = useState(true);
   const [currentLoading, setCurrentLoading] = useState(true);
   const [currentWeather, setCurrentWeather] = useState([]);
+  const [isFahrenheit, setIsFahrenheit] = useState(true);
+
+    const handleTemperatureSwitch = () => {
+    if(isFahrenheit){
+      setIsFahrenheit(false);
+    } else{
+      setIsFahrenheit(true);
+    }
+  }
 
   const getHourlyWeather = () => {
     setHourlyLoading(true)
@@ -71,10 +80,10 @@ const Zip = () => {
     {!(currentLoading && hourlyLoading)? 
         <div className={classes.column}>
         <div className={classes.row}>
-          <ZipInfo zip={zipCode} city={city} />
-          <ZipCurrentWeather currentWeather = {currentWeather}/>
+          <ZipInfo zip={zipCode} city={city} isFahrenheit={isFahrenheit} handleTemperatureSwitch = {handleTemperatureSwitch} />
+          <ZipCurrentWeather currentWeather = {currentWeather} isFahrenheit={isFahrenheit}/>
         </div>
-        <HourlyCardList hourlyWeatherArray = {hourlyWeatherArray} loading = {hourlyLoading} />
+        <HourlyCardList hourlyWeatherArray = {hourlyWeatherArray} loading = {hourlyLoading} isFahrenheit={isFahrenheit} />
       </div> :
       <div></div>
   

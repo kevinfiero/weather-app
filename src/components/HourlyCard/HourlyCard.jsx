@@ -38,13 +38,25 @@ const useStyles = makeStyles({
   }
 });
 
-const HourlyCard = ({ card }) => {
+const HourlyCard = ({ card, isFahrenheit }) => {
   const classes = useStyles();
+
+  let temperature;
+  let wind;
+
+  if (isFahrenheit) {
+    temperature = <div>{`${card.temperature}°F`}</div>
+    wind = <div>{`${card.wind} mph`}</div>
+  } else {
+    temperature = <div>{`${card.temperatureC}°C`}</div>
+    wind = <div>{`${card.windK} km/h`}</div>
+  }
+
   return (
     <Card className={classes.card}>
       <Grid container spacing={3} direction="row" justify="center" alignItems="center">
         <Grid item>{`${card.dayOfWeek} ${card.time}`}</Grid>
-        <Grid item>{`${card.temperature}°F`}</Grid>
+        <Grid item>{temperature}</Grid>
         <Grid item className={classes.padding}><img src={card.icon} className={classes.media} /></Grid>
         <Grid item className={classes.row}>
           <img src={humidityIcon} className={classes.icons} />
@@ -52,7 +64,7 @@ const HourlyCard = ({ card }) => {
         </Grid>
         <Grid item className={classes.row}>
           <img src={windIcon} className={classes.icons} />          
-          <div className={classes.text}>{`${card.wind} mph`}</div>
+          <div className={classes.text}>{wind}</div>
         </Grid>
       </Grid>
     </Card>

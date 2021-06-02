@@ -17,7 +17,7 @@ const useStyles = makeStyles({
   }
 })
 
-const HourlyCardList = ({hourlyWeatherArray, loading}) => {
+const HourlyCardList = ({hourlyWeatherArray, loading, isFahrenheit}) => {
   const classes = useStyles();
 
 
@@ -27,7 +27,7 @@ const HourlyCardList = ({hourlyWeatherArray, loading}) => {
 if(!loading){
   cardElements = hourlyWeatherArray.map((card) => (
     <Grid item key={`${card.dayOfWeek}${card.time}`} className = {classes.gridItem} >
-        <HourlyCard card={card}/>
+        <HourlyCard card={card} isFahrenheit={isFahrenheit}/>
     </Grid>
 
   ))

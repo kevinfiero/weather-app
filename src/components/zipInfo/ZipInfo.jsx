@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core';
 import Card from '@material-ui/core/Card';
 import backIcon from '../../assets/back.svg'
 import { Link } from 'react-router-dom';
+import Toggle from '../toggle/Toggle';
 
 
 
@@ -20,16 +21,18 @@ const useStyles = makeStyles({
   icons: {
     width: "20px",
     height: "20px",
-    padding: "0px"
+    padding: "0px",
+    marginTop: "20px"
   }
 });
 
-const CityInfo = ({ zip, city }) => {
+const CityInfo = ({ zip, city, isFahrenheit, handleTemperatureSwitch }) => {
   const classes = useStyles();
   return (
       <Card className={classes.card}>
         <h2>{city}</h2>
         <h3>{zip}</h3>
+        <Toggle isFahrenheit={isFahrenheit} handleTemperatureSwitch = {handleTemperatureSwitch}/>
         <Link to={`/`}>
           <img src={backIcon} className={classes.icons}/>
         </Link>
