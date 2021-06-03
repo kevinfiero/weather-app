@@ -4,6 +4,7 @@ import Search from '../../components/search/Search';
 import TemperatureCardList from '../../components/TemperatureCardList/TemperatureCardList';
 import Toggle from '../../components/toggle/Toggle';
 import ls from 'local-storage';
+import { zipCodeErrorHandler, temperatureSwitchLogic, initializeFahrenheit, initializeWeatherArray } from '../../services';
 
 export default function Home() {
 
@@ -16,43 +17,17 @@ export default function Home() {
   const [initialRender, setInitialRender] = useState(true)
 
   useEffect(() => {
+    zipCodeErrorHandler(zipCode, setZipCodeTextError, setZipCodeSubmitError, setZipCodeTextErrorMessage);
 
     if(!initialRender){
       ls.set('currentWeatherArray', JSON.stringify(currentWeatherArray))
     }
-
-    if(isNaN(zipCode)){
-      setZipCodeTextError(true);
-      setZipCodeSubmitError(true);
-      setZipCodeTextErrorMessage('Please only use numbers');
-    } else if (!isNaN(zipCode) && zipCode.length < 5){
-      setZipCodeTextErrorMessage('');
-      setZipCodeTextError(false);
-      setZipCodeSubmitError(true);
-    } else if (!isNaN(zipCode) && zipCode.length === 5 && (currentWeatherArray.filter(e => e.zipCode === zipCode).length > 0)) {
-      setZipCodeTextError(true);
-      setZipCodeSubmitError(true);
-      setZipCodeTextErrorMessage('This zip code is already displayed');
-    } else if(!isNaN(zipCode) && zipCode.length === 5){
-      setZipCodeTextErrorMessage('');
-      setZipCodeTextError(false);
-      setZipCodeSubmitError(false);
-    }
-
     setInitialRender(false);
   }, [zipCode, currentWeatherArray])
 
   useEffect(() => {
-    if(JSON.parse((ls.get('isFahrenheit'))) === null){
-      setIsFahrenheit(true);
-    } else {
-      setIsFahrenheit(JSON.parse((ls.get('isFahrenheit'))));
-    }
-    if(JSON.parse((ls.get('currentWeatherArray'))) === null){
-      setCurrentWeatherArray([]);
-    } else {
-      setCurrentWeatherArray(JSON.parse((ls.get('currentWeatherArray'))));
-    }
+    initializeFahrenheit(setIsFahrenheit);
+    initializeWeatherArray(setCurrentWeatherArray);
   }, [])
 
   const zipCodeTextChange = ({ target }) => {
@@ -60,13 +35,7 @@ export default function Home() {
   }
 
   const handleTemperatureSwitch = () => {
-    if(isFahrenheit){
-      setIsFahrenheit(false);
-      ls.set('isFahrenheit', 'false');
-    } else{
-      setIsFahrenheit(true);
-      ls.set('isFahrenheit', 'true');
-    }
+    temperatureSwitchLogic(isFahrenheit, setIsFahrenheit)
   }
 
   const handleZipCodeSubmit = () => {

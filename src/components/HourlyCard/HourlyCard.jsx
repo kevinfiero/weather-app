@@ -5,7 +5,6 @@ import windIcon from '../../assets/wind.svg'
 import humidityIcon from '../../assets/humidity.svg'
 import ls from 'local-storage';
 
-
 const useStyles = makeStyles({
   card: {
     maxWidth: 800,
