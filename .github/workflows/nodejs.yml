@@ -16,3 +16,5 @@ jobs:
     - run: npm test
       env:
         CI: true
+        API_KEY: 47df1e137393e9bb5f4533de8a22331c
+
