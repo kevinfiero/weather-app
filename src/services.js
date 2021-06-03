@@ -31,7 +31,6 @@ export const temperatureSwitchLogic = (isFahrenheit, setIsFahrenheit) => {
     setIsFahrenheit(true);
     ls.set('isFahrenheit', 'true');
   }
-
 }
 
 export const initializeFahrenheit = (setIsFahrenheit) => {

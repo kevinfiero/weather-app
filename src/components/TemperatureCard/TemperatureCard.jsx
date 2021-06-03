@@ -52,17 +52,6 @@ const TemperatureCard = ({ weatherInfo, handleDeleteCard, isFahrenheit }) => {
     }
   }, [isVisible])
 
-  let temperature;
-  let wind;
-
-  if (isFahrenheit) {
-    temperature = <div>{`${weatherInfo.temperature}°F`}</div>
-    wind = <div>{`${weatherInfo.wind} mph`}</div>
-  } else {
-    temperature = <div>{`${weatherInfo.temperatureC}°C`}</div>
-    wind = <div>{`${weatherInfo.windK} km/h`}</div>
-  }
-
   return (
     <div className={styles.grow} >
       <div className={isVisible ? styles.fadeInImage : styles.fadeOutImage}>
@@ -75,7 +64,7 @@ const TemperatureCard = ({ weatherInfo, handleDeleteCard, isFahrenheit }) => {
               className={classes.media}
             />
             <CardContent>
-              {temperature}
+            <div>{isFahrenheit ? `${weatherInfo.temperature}°F` : `${weatherInfo.temperatureC}°C` }</div>
               <div>{weatherInfo.condition}</div>
             </CardContent>
             <Grid container direction="row" justify="center" alignItems="center">
@@ -85,7 +74,7 @@ const TemperatureCard = ({ weatherInfo, handleDeleteCard, isFahrenheit }) => {
               </div>
               <div className={classes.statCards}>
                 <img src={windIcon} className={classes.icons} />
-                {wind}
+                <div>{isFahrenheit ? `${weatherInfo.wind} mph` : `${weatherInfo.windK} km/h` }</div>
               </div >
             </Grid>
           </Link>
@@ -95,12 +84,23 @@ const TemperatureCard = ({ weatherInfo, handleDeleteCard, isFahrenheit }) => {
         </Card>
       </div>
     </div>
-
   )
 }
 
 TemperatureCard.propTypes = {
-
-}
+  weatherInfo: PropTypes.shape({
+    city: PropTypes.string.isRequired,
+    condition: PropTypes.string.isRequired,
+    humidity: PropTypes.number.isRequired,
+    icon: PropTypes.string.isRequired,
+    temperature: PropTypes.number.isRequired,
+    temperatureC: PropTypes.number.isRequired,
+    wind: PropTypes.number.isRequired,
+    windK: PropTypes.number.isRequired,
+    zipCode: PropTypes.string.isRequired
+  }),
+  handleDeleteCard: PropTypes.func.isRequired, 
+  isFahrenheit: PropTypes.bool.isRequired
+  }
 
 export default TemperatureCard

@@ -51,7 +51,8 @@ const Toggle = ({ isFahrenheit, handleTemperatureSwitch }) => {
 }
 
 Toggle.propTypes = {
-
+  isFahrenheit: PropTypes.bool.isRequired, 
+  handleTemperatureSwitch: PropTypes.func.isRequired,  
 }
 
 export default Toggle

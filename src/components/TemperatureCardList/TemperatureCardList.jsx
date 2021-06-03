@@ -13,9 +13,8 @@ const useStyles = makeStyles({
   }
 })
 
-const TemperatureCardList = ({currentWeatherArray, handleDeleteCard, isFahrenheit}) => {
+const TemperatureCardList = ({ currentWeatherArray, handleDeleteCard, isFahrenheit }) => {
   const classes = useStyles();
-
 
   const cardElements = currentWeatherArray.map((card) => (
     <Grid item key={card.zipCode} className={classes.gridItem}>
@@ -28,15 +27,24 @@ const TemperatureCardList = ({currentWeatherArray, handleDeleteCard, isFahrenhei
 ))
 
   return (
-    <>
-      <Grid container className = {classes.gridContainer}>{cardElements}</Grid>
-    </>
-
+    <Grid container className = {classes.gridContainer}>{cardElements}</Grid>
   )
 }
 
 TemperatureCardList.propTypes = {
-
+  currentWeatherArray: PropTypes.arrayOf(PropTypes.shape({
+    city: PropTypes.string.isRequired,
+    condition: PropTypes.string.isRequired,
+    humidity: PropTypes.number.isRequired,
+    icon: PropTypes.string.isRequired,
+    temperature: PropTypes.number.isRequired,
+    temperatureC: PropTypes.number.isRequired,
+    wind: PropTypes.number.isRequired,
+    windK: PropTypes.number.isRequired,
+    zipCode: PropTypes.string.isRequired
+  })).isRequired, 
+  handleDeleteCard: PropTypes.func.isRequired,
+  isFahrenheit: PropTypes.bool.isRequired,
 }
 
 export default TemperatureCardList
