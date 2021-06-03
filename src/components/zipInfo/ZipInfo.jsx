@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core';
 import Card from '@material-ui/core/Card';
 import backIcon from '../../assets/back.svg'
 import { Link } from 'react-router-dom';
-import Toggle from '../toggle/Toggle';
+import Toggle from '../Toggle/Toggle';
 
 const useStyles = makeStyles({
   card: {

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router';
-import ZipInfo from '../../components/zipInfo/ZipInfo';
+import ZipInfo from '../../components/ZipInfo/ZipInfo';
 import { findWeatherForecast, findCurrentWeather } from '../../weatherApi';
 import HourlyCardList from '../../components/HourlyCardList/HourlyCardList';
 import ZipCurrentWeather from '../../components/ZipCurrentWeather/ZipCurrentWeather';

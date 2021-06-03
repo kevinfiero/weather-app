@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { findCurrentWeather } from '../../weatherApi';
-import Search from '../../components/search/Search';
+import Search from '../../components/Search/Search';
 import TemperatureCardList from '../../components/TemperatureCardList/TemperatureCardList';
-import Toggle from '../../components/toggle/Toggle';
+import Toggle from '../../components/Toggle/Toggle';
 import ls from 'local-storage';
 import { zipCodeErrorHandler, temperatureSwitchLogic, initializeFahrenheit, initializeWeatherArray } from '../../services';
 
