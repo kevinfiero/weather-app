@@ -21,15 +21,19 @@ const useStyles = makeStyles({
     height: "20px",
     padding: "0px",
     marginTop: "20px"
+  },
+  invisible: {
+    opacity: "0"
+
   }
 });
 
-const CityInfo = ({ zip, city, isFahrenheit, handleTemperatureSwitch }) => {
+const CityInfo = ({ zip, city, isFahrenheit, handleTemperatureSwitch, loading }) => {
   const classes = useStyles();
   return (
     <Card className={classes.card}>
-      <h2>{city}</h2>
-      <h3>{zip}</h3>
+      {loading ? <h2 className = {classes.invisible}>city</h2> : <h2>{city}</h2>}
+      {loading ? <h3 className = {classes.invisible}>zip</h3> : <h3>{zip}</h3>}
       <Toggle
         isFahrenheit={isFahrenheit}
         handleTemperatureSwitch={handleTemperatureSwitch}

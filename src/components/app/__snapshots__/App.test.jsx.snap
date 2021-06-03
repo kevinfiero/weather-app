@@ -3,7 +3,7 @@
 exports[`App component renders App 1`] = `
 <DocumentFragment>
   <div
-    class="search"
+    class="makeStyles-search-1"
   >
     <div
       class="MuiFormControl-root MuiTextField-root"
@@ -30,10 +30,10 @@ exports[`App component renders App 1`] = `
         />
         <fieldset
           aria-hidden="true"
-          class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+          class="PrivateNotchedOutline-root-3 MuiOutlinedInput-notchedOutline"
         >
           <legend
-            class="PrivateNotchedOutline-legendLabelled-3"
+            class="PrivateNotchedOutline-legendLabelled-5"
           >
             <span>
               Zip Code
@@ -43,7 +43,7 @@ exports[`App component renders App 1`] = `
       </div>
     </div>
     <button
-      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary Mui-disabled Mui-disabled"
+      class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-button-2 MuiButton-containedPrimary Mui-disabled Mui-disabled"
       disabled=""
       tabindex="-1"
       type="button"
@@ -56,48 +56,50 @@ exports[`App component renders App 1`] = `
     </button>
   </div>
   <div
-    class="toggle"
+    class="makeStyles-toggle-7"
   >
-    <div>
-      <span>
-        °C
-      </span>
+    <span
+      class="makeStyles-temp-8"
+    >
+      °C
+    </span>
+    <span
+      class="MuiSwitch-root makeStyles-toggle-7"
+    >
       <span
-        class="MuiSwitch-root"
+        aria-disabled="false"
+        class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-12 MuiSwitch-switchBase MuiSwitch-colorPrimary WithStyles(ForwardRef(Switch))-colorPrimary-9 PrivateSwitchBase-checked-13 Mui-checked"
       >
         <span
-          aria-disabled="false"
-          class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-9 MuiSwitch-switchBase MuiSwitch-colorPrimary WithStyles(ForwardRef(Switch))-colorPrimary-6 PrivateSwitchBase-checked-10 Mui-checked"
+          class="MuiIconButton-label"
         >
+          <input
+            checked=""
+            class="PrivateSwitchBase-input-15 MuiSwitch-input"
+            name="checkedB"
+            type="checkbox"
+            value=""
+          />
           <span
-            class="MuiIconButton-label"
-          >
-            <input
-              checked=""
-              class="PrivateSwitchBase-input-12 MuiSwitch-input"
-              name="checkedB"
-              type="checkbox"
-              value=""
-            />
-            <span
-              class="MuiSwitch-thumb WithStyles(ForwardRef(Switch))-thumb-8"
-            />
-          </span>
-          <span
-            class="MuiTouchRipple-root"
+            class="MuiSwitch-thumb WithStyles(ForwardRef(Switch))-thumb-11"
           />
         </span>
         <span
-          class="MuiSwitch-track WithStyles(ForwardRef(Switch))-track-7"
+          class="MuiTouchRipple-root"
         />
       </span>
-      <span>
-        °F
-      </span>
-    </div>
+      <span
+        class="MuiSwitch-track WithStyles(ForwardRef(Switch))-track-10"
+      />
+    </span>
+    <span
+      class="makeStyles-temp-8"
+    >
+      °F
+    </span>
   </div>
   <div
-    class="MuiGrid-root makeStyles-gridContainer-14 MuiGrid-container"
+    class="MuiGrid-root makeStyles-gridContainer-17 MuiGrid-container"
   />
 </DocumentFragment>
 `;

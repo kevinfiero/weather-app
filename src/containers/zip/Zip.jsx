@@ -26,7 +26,6 @@ const useStyles = makeStyles({
 
 })
 
-
 const Zip = () => {
   const classes = useStyles();
   const { id } = useParams();
@@ -78,6 +77,7 @@ const Zip = () => {
               city={city} 
               isFahrenheit={isFahrenheit} 
               handleTemperatureSwitch={handleTemperatureSwitch} 
+              loading={hourlyLoading} 
             />
             <ZipCurrentWeather 
               currentWeather={currentWeather} 
