@@ -1,13 +1,21 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { makeStyles, Switch, withStyles } from '@material-ui/core'
-import styles from './Toggle.css'
 
 const useStyles = makeStyles({
   track: {
     backgroundColor: "green"
+  },
+  toggle: {
+    display: "flex",
+    justifyContent: "center",
+    alignContent: "center",
+    textAlign: "center",
+  },
+  temp: {
+    marginTop: "auto",
+    marginBottom: "auto",
   }
-
 })
 
 const CustomSwitch = withStyles({
@@ -28,9 +36,8 @@ const CustomSwitch = withStyles({
 const Toggle = ({ isFahrenheit, handleTemperatureSwitch }) => {
   const classes = useStyles();
   return (
-    <div className={styles.toggle}>
-      <div>
-        <span>°C</span>
+      <div className={classes.toggle}>
+        <span className={classes.temp}>°C</span>
         <CustomSwitch
           className={classes.toggle}
           onClick={handleTemperatureSwitch}
@@ -38,9 +45,8 @@ const Toggle = ({ isFahrenheit, handleTemperatureSwitch }) => {
           name="checkedB"
           color="primary"
         />
-        <span>°F</span>
-      </div>
-    </div>
+        <span className={classes.temp}>°F</span>
+        </div>
   )
 }
 

@@ -17,7 +17,7 @@ export default function Home() {
   const [initialRender, setInitialRender] = useState(true)
 
   useEffect(() => {
-    zipCodeErrorHandler(zipCode, setZipCodeTextError, setZipCodeSubmitError, setZipCodeTextErrorMessage);
+    zipCodeErrorHandler(zipCode, setZipCodeTextError, setZipCodeSubmitError, setZipCodeTextErrorMessage, currentWeatherArray);
 
     if(!initialRender){
       ls.set('currentWeatherArray', JSON.stringify(currentWeatherArray))

@@ -1,6 +1,6 @@
 import ls from 'local-storage';
 
-export const zipCodeErrorHandler = (zipCode, setZipCodeTextError, setZipCodeSubmitError, setZipCodeTextErrorMessage) => {
+export const zipCodeErrorHandler = (zipCode, setZipCodeTextError, setZipCodeSubmitError, setZipCodeTextErrorMessage, currentWeatherArray) => {
 
   if(isNaN(zipCode)){
     setZipCodeTextError(true);
