@@ -15,13 +15,13 @@ const useStyles = makeStyles({
     alignItems: "center",
     justifyItems: "center",
     justifyContent: "space-evenly",
-    margin: "auto",
+    margin: "20px auto",
     width: "500px"
 
   },
   column: {
     display: "flex",
-    flexDirection: "column"
+    flexDirection: "column",
   }
 
 })
