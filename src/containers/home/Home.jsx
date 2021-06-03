@@ -3,6 +3,7 @@ import { findCurrentWeather } from '../../weatherApi';
 import Search from '../../components/search/Search';
 import TemperatureCardList from '../../components/TemperatureCardList/TemperatureCardList';
 import Toggle from '../../components/toggle/Toggle';
+import ls from 'local-storage';
 
 export default function Home() {
 
@@ -34,6 +35,14 @@ export default function Home() {
 
   }, [zipCode, currentWeatherArray])
 
+  useEffect(() => {
+    if(JSON.parse((ls.get('isFahrenheit'))) === null){
+      setIsFahrenheit(true);
+    } else {
+      setIsFahrenheit(JSON.parse((ls.get('isFahrenheit'))));
+    }
+  }, [])
+
   const zipCodeTextChange = ({ target }) => {
     setZipCode(target.value);
   }
@@ -41,8 +50,10 @@ export default function Home() {
   const handleTemperatureSwitch = () => {
     if(isFahrenheit){
       setIsFahrenheit(false);
+      ls.set('isFahrenheit', 'false');
     } else{
       setIsFahrenheit(true);
+      ls.set('isFahrenheit', 'true');
     }
   }
 

@@ -6,6 +6,8 @@ import { findWeatherForecast, findCurrentWeather } from '../../weatherApi';
 import HourlyCardList from '../../components/HourlyCardList/HourlyCardList';
 import ZipCurrentWeather from '../../components/ZipCurrentWeather/ZipCurrentWeather';
 import { makeStyles } from '@material-ui/core';
+import ls from 'local-storage';
+
 
 const useStyles = makeStyles({
   row: {
@@ -37,11 +39,13 @@ const Zip = () => {
   const [currentWeather, setCurrentWeather] = useState([]);
   const [isFahrenheit, setIsFahrenheit] = useState(true);
 
-    const handleTemperatureSwitch = () => {
+  const handleTemperatureSwitch = () => {
     if(isFahrenheit){
       setIsFahrenheit(false);
+      ls.set('isFahrenheit', 'false');
     } else{
       setIsFahrenheit(true);
+      ls.set('isFahrenheit', 'true');
     }
   }
 
@@ -71,6 +75,13 @@ const Zip = () => {
   useEffect(() => {
     getHourlyWeather();
     getCurrentWeather();
+    console.log(JSON.parse(ls.get('isFahrenheit')))
+    if(JSON.parse((ls.get('isFahrenheit'))) === null){
+      setIsFahrenheit(true);
+    } else {
+      setIsFahrenheit(JSON.parse((ls.get('isFahrenheit'))));
+    }
+    console.log(isFahrenheit);
   
   }, [])
 

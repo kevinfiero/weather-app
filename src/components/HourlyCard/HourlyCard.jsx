@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import { Card, CardContent, CardMedia, Grid, makeStyles } from '@material-ui/core';
 import windIcon from '../../assets/wind.svg'
 import humidityIcon from '../../assets/humidity.svg'
+import ls from 'local-storage';
+
 
 const useStyles = makeStyles({
   card: {
