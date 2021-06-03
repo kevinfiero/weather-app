@@ -13,8 +13,14 @@ export default function Home() {
   const [zipCodeSubmitError, setZipCodeSubmitError] = useState(true);
   const [zipCodeTextErrorMessage, setZipCodeTextErrorMessage] = useState("");
   const [isFahrenheit, setIsFahrenheit] = useState(true);
+  const [initialRender, setInitialRender] = useState(true)
 
   useEffect(() => {
+
+    if(!initialRender){
+      ls.set('currentWeatherArray', JSON.stringify(currentWeatherArray))
+    }
+
     if(isNaN(zipCode)){
       setZipCodeTextError(true);
       setZipCodeSubmitError(true);
@@ -33,6 +39,7 @@ export default function Home() {
       setZipCodeSubmitError(false);
     }
 
+    setInitialRender(false);
   }, [zipCode, currentWeatherArray])
 
   useEffect(() => {
@@ -40,6 +47,11 @@ export default function Home() {
       setIsFahrenheit(true);
     } else {
       setIsFahrenheit(JSON.parse((ls.get('isFahrenheit'))));
+    }
+    if(JSON.parse((ls.get('currentWeatherArray'))) === null){
+      setCurrentWeatherArray([]);
+    } else {
+      setCurrentWeatherArray(JSON.parse((ls.get('currentWeatherArray'))));
     }
   }, [])
 

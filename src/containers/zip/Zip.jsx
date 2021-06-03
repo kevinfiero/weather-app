@@ -75,14 +75,11 @@ const Zip = () => {
   useEffect(() => {
     getHourlyWeather();
     getCurrentWeather();
-    console.log(JSON.parse(ls.get('isFahrenheit')))
     if(JSON.parse((ls.get('isFahrenheit'))) === null){
       setIsFahrenheit(true);
     } else {
       setIsFahrenheit(JSON.parse((ls.get('isFahrenheit'))));
-    }
-    console.log(isFahrenheit);
-  
+    }  
   }, [])
 
   return (
