@@ -33,10 +33,23 @@ const useStyles = makeStyles({
   },
   row: {
     display: "flex",
-    direction: "row",
+    direction: "row"
   },
-  text: {
+  datetime: {
+    width: "110px",
+    textAlign: "left",
+  },
+  humidity: {
+    width: "35px",
+    textAlign: "left",
     margin: "auto"
+
+  },
+  wind: {
+    width: "50px",
+    textAlign: "left",
+    margin: "auto"
+
   }
 });
 
@@ -57,16 +70,16 @@ const HourlyCard = ({ card, isFahrenheit }) => {
   return (
     <Card className={classes.card}>
       <Grid container spacing={3} direction="row" justify="center" alignItems="center">
-        <Grid item>{`${card.dayOfWeek} ${card.time}`}</Grid>
+        <Grid item className={classes.datetime}>{`${card.dayOfWeek} ${card.time}`}</Grid>
         <Grid item>{temperature}</Grid>
         <Grid item className={classes.padding}><img src={card.icon} className={classes.media} /></Grid>
         <Grid item className={classes.row}>
           <img src={humidityIcon} className={classes.icons} />
-          <div className={classes.text}>{`${card.humidity}%`}</div>
+          <div className={classes.humidity}>{`${card.humidity}%`}</div>
         </Grid>
         <Grid item className={classes.row}>
           <img src={windIcon} className={classes.icons} />          
-          <div className={classes.text}>{wind}</div>
+          <div className={classes.wind}>{wind}</div>
         </Grid>
       </Grid>
     </Card>
