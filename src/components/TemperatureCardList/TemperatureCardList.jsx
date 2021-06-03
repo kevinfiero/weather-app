@@ -7,7 +7,6 @@ const useStyles = makeStyles({
   gridItem: {
     margin: 10
   },
-
   gridContainer: {
     justifyContent: "center"
   }
@@ -21,7 +20,7 @@ const TemperatureCardList = ({ currentWeatherArray, handleDeleteCard, isFahrenhe
       <TemperatureCard 
       weatherInfo = {card}
       handleDeleteCard = {handleDeleteCard}
-      isFahrenheit={isFahrenheit}
+      isFahrenheit = {isFahrenheit}
       />
     </Grid>
 ))

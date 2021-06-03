@@ -64,7 +64,7 @@ const TemperatureCard = ({ weatherInfo, handleDeleteCard, isFahrenheit }) => {
               className={classes.media}
             />
             <CardContent>
-            <div>{isFahrenheit ? `${weatherInfo.temperature}°F` : `${weatherInfo.temperatureC}°C` }</div>
+            <div>{isFahrenheit ? `${weatherInfo.temperature}°F` : `${weatherInfo.temperatureC}°C`}</div>
               <div>{weatherInfo.condition}</div>
             </CardContent>
             <Grid container direction="row" justify="center" alignItems="center">
@@ -74,7 +74,7 @@ const TemperatureCard = ({ weatherInfo, handleDeleteCard, isFahrenheit }) => {
               </div>
               <div className={classes.statCards}>
                 <img src={windIcon} className={classes.icons} />
-                <div>{isFahrenheit ? `${weatherInfo.wind} mph` : `${weatherInfo.windK} km/h` }</div>
+                <div>{isFahrenheit ? `${weatherInfo.wind} mph` : `${weatherInfo.windK} km/h`}</div>
               </div >
             </Grid>
           </Link>

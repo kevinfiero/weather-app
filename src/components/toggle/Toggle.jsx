@@ -3,9 +3,6 @@ import PropTypes from 'prop-types'
 import { makeStyles, Switch, withStyles } from '@material-ui/core'
 
 const useStyles = makeStyles({
-  track: {
-    backgroundColor: "green"
-  },
   toggle: {
     display: "flex",
     justifyContent: "center",

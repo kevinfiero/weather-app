@@ -1,7 +1,6 @@
 import ls from 'local-storage';
 
 export const zipCodeErrorHandler = (zipCode, setZipCodeTextError, setZipCodeSubmitError, setZipCodeTextErrorMessage, currentWeatherArray) => {
-
   if(isNaN(zipCode)){
     setZipCodeTextError(true);
     setZipCodeSubmitError(true);
@@ -19,11 +18,9 @@ export const zipCodeErrorHandler = (zipCode, setZipCodeTextError, setZipCodeSubm
     setZipCodeTextError(false);
     setZipCodeSubmitError(false);
   }
-
 }
 
 export const temperatureSwitchLogic = (isFahrenheit, setIsFahrenheit) => {
-
   if(isFahrenheit){
     setIsFahrenheit(false);
     ls.set('isFahrenheit', 'false');

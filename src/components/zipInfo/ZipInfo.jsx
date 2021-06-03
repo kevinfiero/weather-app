@@ -6,8 +6,6 @@ import backIcon from '../../assets/back.svg'
 import { Link } from 'react-router-dom';
 import Toggle from '../toggle/Toggle';
 
-
-
 const useStyles = makeStyles({
   card: {
     maxWidth: 345,
@@ -29,20 +27,25 @@ const useStyles = makeStyles({
 const CityInfo = ({ zip, city, isFahrenheit, handleTemperatureSwitch }) => {
   const classes = useStyles();
   return (
-      <Card className={classes.card}>
-        <h2>{city}</h2>
-        <h3>{zip}</h3>
-        <Toggle isFahrenheit={isFahrenheit} handleTemperatureSwitch = {handleTemperatureSwitch}/>
-        <Link to={`/`}>
-          <img src={backIcon} className={classes.icons}/>
-        </Link>
-        
-      </Card>
+    <Card className={classes.card}>
+      <h2>{city}</h2>
+      <h3>{zip}</h3>
+      <Toggle
+        isFahrenheit={isFahrenheit}
+        handleTemperatureSwitch={handleTemperatureSwitch}
+      />
+      <Link to={`/`}>
+        <img src={backIcon} className={classes.icons} />
+      </Link>
+    </Card>
   )
 }
 
 CityInfo.propTypes = {
-
+  zip: PropTypes.string.isRequired,
+  city: PropTypes.string.isRequired,
+  isFahrenheit: PropTypes.bool.isRequired,
+  handleTemperatureSwitch: PropTypes.func.isRequired
 }
 
 export default CityInfo

@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router';
-import PropTypes from 'prop-types'
 import ZipInfo from '../../components/zipInfo/ZipInfo';
 import { findWeatherForecast, findCurrentWeather } from '../../weatherApi';
 import HourlyCardList from '../../components/HourlyCardList/HourlyCardList';
 import ZipCurrentWeather from '../../components/ZipCurrentWeather/ZipCurrentWeather';
 import { makeStyles } from '@material-ui/core';
-import ls from 'local-storage';
+import { initializeFahrenheit, temperatureSwitchLogic } from '../../services';
 
 
 const useStyles = makeStyles({
@@ -18,7 +17,7 @@ const useStyles = makeStyles({
     justifyContent: "space-evenly",
     margin: "auto",
     width: "500px"
-    
+
   },
   column: {
     display: "flex",
@@ -40,69 +39,62 @@ const Zip = () => {
   const [isFahrenheit, setIsFahrenheit] = useState(true);
 
   const handleTemperatureSwitch = () => {
-    if(isFahrenheit){
-      setIsFahrenheit(false);
-      ls.set('isFahrenheit', 'false');
-    } else{
-      setIsFahrenheit(true);
-      ls.set('isFahrenheit', 'true');
-    }
+    temperatureSwitchLogic(isFahrenheit, setIsFahrenheit)
   }
 
   const getHourlyWeather = () => {
     setHourlyLoading(true)
     findWeatherForecast(id)
-    .then(res => {
-      setZipCode(res.zipCode)
-      setCity(res.city)
-      setHourlyWeatherArray(res.hourlyWeatherArray)
-      setHourlyLoading(false)
-    })
+      .then(res => {
+        setZipCode(res.zipCode)
+        setCity(res.city)
+        setHourlyWeatherArray(res.hourlyWeatherArray)
+        setHourlyLoading(false)
+      })
   }
 
   const getCurrentWeather = () => {
     setCurrentLoading(true)
     findCurrentWeather(id)
-    .then(res => {
-      setCurrentWeather(res);
-      setCurrentLoading(false);
-    })
-    
-
+      .then(res => {
+        setCurrentWeather(res);
+        setCurrentLoading(false);
+      })
   }
-
 
   useEffect(() => {
     getHourlyWeather();
     getCurrentWeather();
-    if(JSON.parse((ls.get('isFahrenheit'))) === null){
-      setIsFahrenheit(true);
-    } else {
-      setIsFahrenheit(JSON.parse((ls.get('isFahrenheit'))));
-    }  
+    initializeFahrenheit(setIsFahrenheit);
   }, [])
 
   return (
     <>
-
-    {!(currentLoading && hourlyLoading)? 
+      {!(currentLoading && hourlyLoading) ?
         <div className={classes.column}>
-        <div className={classes.row}>
-          <ZipInfo zip={zipCode} city={city} isFahrenheit={isFahrenheit} handleTemperatureSwitch = {handleTemperatureSwitch} />
-          <ZipCurrentWeather currentWeather = {currentWeather} isFahrenheit={isFahrenheit}/>
-        </div>
-        <HourlyCardList hourlyWeatherArray = {hourlyWeatherArray} loading = {hourlyLoading} isFahrenheit={isFahrenheit} />
-      </div> :
-      <div></div>
-  
-  }
+          <div className={classes.row}>
+            <ZipInfo 
+              zip={zipCode} 
+              city={city} 
+              isFahrenheit={isFahrenheit} 
+              handleTemperatureSwitch={handleTemperatureSwitch} 
+            />
+            <ZipCurrentWeather 
+              currentWeather={currentWeather} 
+              isFahrenheit={isFahrenheit} 
+            />
+          </div>
+          <HourlyCardList 
+            hourlyWeatherArray={hourlyWeatherArray} 
+            loading={hourlyLoading} 
+            isFahrenheit={isFahrenheit} 
+          />
+        </div> :
+        <div></div>
+      }
     </>
 
   )
-}
-
-Zip.propTypes = {
-
 }
 
 export default Zip

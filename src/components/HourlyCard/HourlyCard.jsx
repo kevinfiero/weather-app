@@ -1,9 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Card, CardContent, CardMedia, Grid, makeStyles } from '@material-ui/core';
+import { Card, Grid, makeStyles } from '@material-ui/core';
 import windIcon from '../../assets/wind.svg'
 import humidityIcon from '../../assets/humidity.svg'
-import ls from 'local-storage';
 
 const useStyles = makeStyles({
   card: {
@@ -42,43 +41,30 @@ const useStyles = makeStyles({
     width: "35px",
     textAlign: "left",
     margin: "auto"
-
   },
   wind: {
     width: "50px",
     textAlign: "left",
     margin: "auto"
-
   }
 });
 
 const HourlyCard = ({ card, isFahrenheit }) => {
   const classes = useStyles();
 
-  let temperature;
-  let wind;
-
-  if (isFahrenheit) {
-    temperature = <div>{`${card.temperature}°F`}</div>
-    wind = <div>{`${card.wind} mph`}</div>
-  } else {
-    temperature = <div>{`${card.temperatureC}°C`}</div>
-    wind = <div>{`${card.windK} km/h`}</div>
-  }
-
   return (
     <Card className={classes.card}>
       <Grid container spacing={3} direction="row" justify="center" alignItems="center">
         <Grid item className={classes.datetime}>{`${card.dayOfWeek} ${card.time}`}</Grid>
-        <Grid item>{temperature}</Grid>
+        <Grid item>{isFahrenheit ? `${card.temperature}°F` : `${card.temperatureC}°C`}</Grid>
         <Grid item className={classes.padding}><img src={card.icon} className={classes.media} /></Grid>
         <Grid item className={classes.row}>
           <img src={humidityIcon} className={classes.icons} />
           <div className={classes.humidity}>{`${card.humidity}%`}</div>
         </Grid>
         <Grid item className={classes.row}>
-          <img src={windIcon} className={classes.icons} />          
-          <div className={classes.wind}>{wind}</div>
+          <img src={windIcon} className={classes.icons} />
+          <div className={classes.wind}>{isFahrenheit ? `${card.wind} mph` : `${card.windK} km/h`}</div>
         </Grid>
       </Grid>
     </Card>
@@ -86,7 +72,18 @@ const HourlyCard = ({ card, isFahrenheit }) => {
 }
 
 HourlyCard.propTypes = {
-
+  card: PropTypes.shape({
+    dayOfWeek: PropTypes.string.isRequired,
+    condition: PropTypes.string.isRequired,
+    humidity: PropTypes.number.isRequired,
+    icon: PropTypes.string.isRequired,
+    temperature: PropTypes.number.isRequired,
+    temperatureC: PropTypes.number.isRequired,
+    wind: PropTypes.number.isRequired,
+    windK: PropTypes.number.isRequired,
+    time: PropTypes.string.isRequired
+  }).isRequired,
+  isFahrenheit: PropTypes.bool.isRequired
 }
 
 export default HourlyCard
