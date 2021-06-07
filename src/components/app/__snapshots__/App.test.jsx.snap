@@ -69,6 +69,7 @@ exports[`App component renders App 1`] = `
       <span
         aria-disabled="false"
         class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-12 MuiSwitch-switchBase MuiSwitch-colorPrimary WithStyles(ForwardRef(Switch))-colorPrimary-9 PrivateSwitchBase-checked-13 Mui-checked"
+        data-testid="toggle"
       >
         <span
           class="MuiIconButton-label"

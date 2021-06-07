@@ -41,6 +41,7 @@ const Toggle = ({ isFahrenheit, handleTemperatureSwitch }) => {
           checked={isFahrenheit}
           name="checkedB"
           color="primary"
+          data-testid="toggle"
         />
         <span className={classes.temp}>°F</span>
         </div>

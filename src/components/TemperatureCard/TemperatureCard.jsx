@@ -78,7 +78,7 @@ const TemperatureCard = ({ weatherInfo, handleDeleteCard, isFahrenheit }) => {
               </div >
             </Grid>
           </Link>
-          <IconButton onClick={() => { setIsVisible(false); }}>
+          <IconButton data-testid={`delete-${weatherInfo.zipCode}`} onClick={() => { setIsVisible(false); }}>
             <HighlightOffIcon fontSize="small" color="error" />
           </IconButton>
         </Card>
