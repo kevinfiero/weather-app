@@ -6,7 +6,7 @@ require('dotenv').config();
 
 describe('Home Page Container', () => {
   jest.setTimeout(30000)
-  it('Add New City Via Zip Code', () => {
+  it('Add New City Via Zip Code', async () => {
 
     act(() => {
       render(
@@ -32,7 +32,7 @@ describe('Home Page Container', () => {
     return waitFor(() => { expect(screen.getByText('Middletown')).toBeInTheDocument() })
 
   })
-  it('Switch From Fahrenheit to Celsius', () => {
+  it('Switch From Fahrenheit to Celsius', async () => {
 
     act(() => {
       render(
