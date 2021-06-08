@@ -1,4 +1,5 @@
 import ls from 'local-storage';
+import { findCurrentWeather } from './weatherApi'
 
 export const zipCodeErrorHandler = (zipCode, setZipCodeTextError, setZipCodeSubmitError, setZipCodeTextErrorMessage, currentWeatherArray) => {
   if(isNaN(zipCode)){
@@ -38,11 +39,40 @@ export const initializeFahrenheit = (setIsFahrenheit) => {
   }
 }
 
-export const initializeWeatherArray = (setCurrentWeatherArray) => {
-  if(JSON.parse((ls.get('currentWeatherArray'))) === null){
+export const initializeWeatherArray = async (setCurrentWeatherArray) => {
+
+  let zipArray = JSON.parse((ls.get('zipCodeArray')))
+
+  if(zipArray === null){
     setCurrentWeatherArray([]);
   } else {
-    setCurrentWeatherArray(JSON.parse((ls.get('currentWeatherArray'))));
+    const currentWeatherArray = await Promise.all(zipArray.map( async (zip) => (
+      await findCurrentWeather(zip)
+    )))
+    setCurrentWeatherArray(currentWeatherArray)
   }
+}
+
+export const setZipCodeArray = (zipCode) => {
+
+  let zipCodeArray = JSON.parse((ls.get('zipCodeArray')));
+
+  if(zipCodeArray === null){
+    zipCodeArray = new Array()
+  }
+
+  zipCodeArray.push(zipCode)
+  ls.set('zipCodeArray', JSON.stringify(zipCodeArray))
+  
+}
+
+export const deleteZipCodeArray = (zipCode) => {
+
+  let zipCodeArray = JSON.parse((ls.get('zipCodeArray')))
+
+  zipCodeArray = zipCodeArray.filter((e) => e !== zipCode)
+
+  ls.set('zipCodeArray', JSON.stringify(zipCodeArray))
+  
 }
 

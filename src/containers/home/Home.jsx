@@ -4,7 +4,7 @@ import Search from '../../components/Search/Search';
 import TemperatureCardList from '../../components/TemperatureCardList/TemperatureCardList';
 import Toggle from '../../components/Toggle/Toggle';
 import ls from 'local-storage';
-import { zipCodeErrorHandler, temperatureSwitchLogic, initializeFahrenheit, initializeWeatherArray } from '../../services';
+import { zipCodeErrorHandler, temperatureSwitchLogic, initializeFahrenheit, initializeWeatherArray, setZipCodeArray, deleteZipCodeArray } from '../../services';
 
 export default function Home() {
 
@@ -14,15 +14,10 @@ export default function Home() {
   const [zipCodeSubmitError, setZipCodeSubmitError] = useState(true);
   const [zipCodeTextErrorMessage, setZipCodeTextErrorMessage] = useState("");
   const [isFahrenheit, setIsFahrenheit] = useState(true);
-  const [initialRender, setInitialRender] = useState(true)
 
   useEffect(() => {
     zipCodeErrorHandler(zipCode, setZipCodeTextError, setZipCodeSubmitError, setZipCodeTextErrorMessage, currentWeatherArray);
 
-    if(!initialRender){
-      ls.set('currentWeatherArray', JSON.stringify(currentWeatherArray))
-    }
-    setInitialRender(false);
   }, [zipCode, currentWeatherArray])
 
   useEffect(() => {
@@ -43,6 +38,7 @@ export default function Home() {
       findCurrentWeather(zipCode)
       .then(res => {
         if(res){
+          setZipCodeArray(zipCode);
           setCurrentWeatherArray([...currentWeatherArray, res])
           setZipCode("");
         } else{
@@ -59,6 +55,7 @@ export default function Home() {
 };
 
   const handleDeleteCard = (zip) => {
+    deleteZipCodeArray(zip)
     setCurrentWeatherArray(currentWeatherArray.filter((e) => e.zipCode !== zip));
   }
 
@@ -82,7 +79,6 @@ export default function Home() {
       handleDeleteCard={handleDeleteCard}
       isFahrenheit={isFahrenheit}
       />
-
     </>
   )
 }

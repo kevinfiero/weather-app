@@ -17,7 +17,6 @@ const useStyles = makeStyles({
     justifyContent: "space-evenly",
     margin: "20px auto",
     width: "500px"
-
   },
   column: {
     display: "flex",
