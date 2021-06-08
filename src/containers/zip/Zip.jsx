@@ -6,6 +6,7 @@ import HourlyCardList from '../../components/HourlyCardList/HourlyCardList';
 import ZipCurrentWeather from '../../components/ZipCurrentWeather/ZipCurrentWeather';
 import { makeStyles } from '@material-ui/core';
 import { initializeFahrenheit, temperatureSwitchLogic } from '../../services';
+import Contact from '../../components/Contact/Contact';
 
 
 const useStyles = makeStyles({
@@ -21,8 +22,10 @@ const useStyles = makeStyles({
   column: {
     display: "flex",
     flexDirection: "column",
+  },
+  contact: {
+    float: "right"
   }
-
 })
 
 const Zip = () => {
@@ -68,31 +71,33 @@ const Zip = () => {
 
   return (
     <>
+      <div className={classes.contact}>
+        <Contact />
+      </div>
       {!(currentLoading && hourlyLoading) ?
         <div className={classes.column}>
           <div className={classes.row}>
-            <ZipInfo 
-              zip={zipCode} 
-              city={city} 
-              isFahrenheit={isFahrenheit} 
-              handleTemperatureSwitch={handleTemperatureSwitch} 
-              loading={hourlyLoading} 
+            <ZipInfo
+              zip={zipCode}
+              city={city}
+              isFahrenheit={isFahrenheit}
+              handleTemperatureSwitch={handleTemperatureSwitch}
+              loading={hourlyLoading}
             />
-            <ZipCurrentWeather 
-              currentWeather={currentWeather} 
-              isFahrenheit={isFahrenheit} 
+            <ZipCurrentWeather
+              currentWeather={currentWeather}
+              isFahrenheit={isFahrenheit}
             />
           </div>
-          <HourlyCardList 
-            hourlyWeatherArray={hourlyWeatherArray} 
-            loading={hourlyLoading} 
-            isFahrenheit={isFahrenheit} 
+          <HourlyCardList
+            hourlyWeatherArray={hourlyWeatherArray}
+            loading={hourlyLoading}
+            isFahrenheit={isFahrenheit}
           />
         </div> :
         <div></div>
       }
     </>
-
   )
 }
 

@@ -3,11 +3,19 @@ import { findCurrentWeather } from '../../weatherApi';
 import Search from '../../components/Search/Search';
 import TemperatureCardList from '../../components/TemperatureCardList/TemperatureCardList';
 import Toggle from '../../components/Toggle/Toggle';
-import ls from 'local-storage';
 import { zipCodeErrorHandler, temperatureSwitchLogic, initializeFahrenheit, initializeWeatherArray, setZipCodeArray, deleteZipCodeArray } from '../../services';
+import Contact from '../../components/Contact/Contact';
+import { makeStyles } from '@material-ui/core';
+
+const useStyles = makeStyles({
+  contact: {
+    float: "right"
+  }
+})
 
 export default function Home() {
 
+  const classes = useStyles();
   const [zipCode, setZipCode] = useState("");
   const [currentWeatherArray, setCurrentWeatherArray] = useState([]);
   const [zipCodeTextError, setZipCodeTextError] = useState(false);
@@ -35,13 +43,13 @@ export default function Home() {
 
   const handleZipCodeSubmit = () => {
 
-      findCurrentWeather(zipCode)
+    findCurrentWeather(zipCode)
       .then(res => {
-        if(res){
+        if (res) {
           setZipCodeArray(zipCode);
           setCurrentWeatherArray([...currentWeatherArray, res])
           setZipCode("");
-        } else{
+        } else {
           setZipCodeTextError(true)
           setZipCodeTextErrorMessage("Not a valid zip code")
         }
@@ -49,10 +57,10 @@ export default function Home() {
   }
 
   const handleKeypress = e => {
-  if (e.which === 13) {
-    handleZipCodeSubmit();
-  }
-};
+    if (e.which === 13) {
+      handleZipCodeSubmit();
+    }
+  };
 
   const handleDeleteCard = (zip) => {
     deleteZipCodeArray(zip)
@@ -61,7 +69,11 @@ export default function Home() {
 
   return (
     <>
-      <Search 
+      <div className={classes.contact}>
+        <Contact />
+
+      </div>
+      <Search
         zipCode={zipCode}
         zipCodeTextError={zipCodeTextError}
         zipCodeSubmitError={zipCodeSubmitError}
@@ -70,14 +82,14 @@ export default function Home() {
         handleZipCodeSubmit={handleZipCodeSubmit}
         handleKeypress={handleKeypress}
       />
-      <Toggle 
-      isFahrenheit={isFahrenheit}
-      handleTemperatureSwitch={handleTemperatureSwitch}
+      <Toggle
+        isFahrenheit={isFahrenheit}
+        handleTemperatureSwitch={handleTemperatureSwitch}
       />
-      <TemperatureCardList 
-      currentWeatherArray={currentWeatherArray} 
-      handleDeleteCard={handleDeleteCard}
-      isFahrenheit={isFahrenheit}
+      <TemperatureCardList
+        currentWeatherArray={currentWeatherArray}
+        handleDeleteCard={handleDeleteCard}
+        isFahrenheit={isFahrenheit}
       />
     </>
   )

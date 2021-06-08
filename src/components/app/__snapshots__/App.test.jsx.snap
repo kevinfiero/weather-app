@@ -3,7 +3,48 @@
 exports[`App component renders App 1`] = `
 <DocumentFragment>
   <div
-    class="makeStyles-search-1"
+    class="makeStyles-contact-1"
+  >
+    <div
+      class="makeStyles-contact-2"
+    >
+      <a
+        href="https://github.com/kevinfiero/weather-app"
+        rel="noreferrer"
+        target="_blank"
+      >
+        <img
+          alt="Github Icon"
+          class="makeStyles-icon-3"
+          src="/path/image"
+        />
+      </a>
+      <a
+        href="https://www.linkedin.com/in/kevinfiero/"
+        rel="noreferrer"
+        target="_blank"
+      >
+        <img
+          alt="LinkedIn Icon"
+          class="makeStyles-icon-3"
+          src="/path/image"
+        />
+      </a>
+      <a
+        href="https://drive.google.com/file/d/1mSVHxaBoMWGOkCQ73B6QaeRu9B4WWlkg/view"
+        rel="noreferrer"
+        target="_blank"
+      >
+        <img
+          alt="Resume Icon"
+          class="makeStyles-icon-3"
+          src="/path/image"
+        />
+      </a>
+    </div>
+  </div>
+  <div
+    class="makeStyles-search-4"
   >
     <div
       class="MuiFormControl-root MuiTextField-root"
@@ -30,10 +71,10 @@ exports[`App component renders App 1`] = `
         />
         <fieldset
           aria-hidden="true"
-          class="PrivateNotchedOutline-root-3 MuiOutlinedInput-notchedOutline"
+          class="PrivateNotchedOutline-root-6 MuiOutlinedInput-notchedOutline"
         >
           <legend
-            class="PrivateNotchedOutline-legendLabelled-5"
+            class="PrivateNotchedOutline-legendLabelled-8"
           >
             <span>
               Zip Code
@@ -43,7 +84,7 @@ exports[`App component renders App 1`] = `
       </div>
     </div>
     <button
-      class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-button-2 MuiButton-containedPrimary Mui-disabled Mui-disabled"
+      class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-button-5 MuiButton-containedPrimary Mui-disabled Mui-disabled"
       disabled=""
       tabindex="-1"
       type="submit"
@@ -56,19 +97,19 @@ exports[`App component renders App 1`] = `
     </button>
   </div>
   <div
-    class="makeStyles-toggle-7"
+    class="makeStyles-toggle-10"
   >
     <span
-      class="makeStyles-temp-8"
+      class="makeStyles-temp-11"
     >
       °C
     </span>
     <span
-      class="MuiSwitch-root makeStyles-toggle-7"
+      class="MuiSwitch-root makeStyles-toggle-10"
     >
       <span
         aria-disabled="false"
-        class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-12 MuiSwitch-switchBase MuiSwitch-colorPrimary WithStyles(ForwardRef(Switch))-colorPrimary-9 PrivateSwitchBase-checked-13 Mui-checked"
+        class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-15 MuiSwitch-switchBase MuiSwitch-colorPrimary WithStyles(ForwardRef(Switch))-colorPrimary-12 PrivateSwitchBase-checked-16 Mui-checked"
         data-testid="toggle"
       >
         <span
@@ -76,13 +117,13 @@ exports[`App component renders App 1`] = `
         >
           <input
             checked=""
-            class="PrivateSwitchBase-input-15 MuiSwitch-input"
+            class="PrivateSwitchBase-input-18 MuiSwitch-input"
             name="checkedB"
             type="checkbox"
             value=""
           />
           <span
-            class="MuiSwitch-thumb WithStyles(ForwardRef(Switch))-thumb-11"
+            class="MuiSwitch-thumb WithStyles(ForwardRef(Switch))-thumb-14"
           />
         </span>
         <span
@@ -90,17 +131,17 @@ exports[`App component renders App 1`] = `
         />
       </span>
       <span
-        class="MuiSwitch-track WithStyles(ForwardRef(Switch))-track-10"
+        class="MuiSwitch-track WithStyles(ForwardRef(Switch))-track-13"
       />
     </span>
     <span
-      class="makeStyles-temp-8"
+      class="makeStyles-temp-11"
     >
       °F
     </span>
   </div>
   <div
-    class="MuiGrid-root makeStyles-gridContainer-17 MuiGrid-container"
+    class="MuiGrid-root makeStyles-gridContainer-20 MuiGrid-container"
   />
 </DocumentFragment>
 `;
