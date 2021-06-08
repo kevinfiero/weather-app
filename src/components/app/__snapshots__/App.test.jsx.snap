@@ -3,145 +3,149 @@
 exports[`App component renders App 1`] = `
 <DocumentFragment>
   <div
-    class="makeStyles-contact-1"
+    class="makeStyles-column-1"
   >
     <div
       class="makeStyles-contact-2"
     >
-      <a
-        href="https://github.com/kevinfiero/weather-app"
-        rel="noreferrer"
-        target="_blank"
-      >
-        <img
-          alt="Github Icon"
-          class="makeStyles-icon-3"
-          src="/path/image"
-        />
-      </a>
-      <a
-        href="https://www.linkedin.com/in/kevinfiero/"
-        rel="noreferrer"
-        target="_blank"
-      >
-        <img
-          alt="LinkedIn Icon"
-          class="makeStyles-icon-3"
-          src="/path/image"
-        />
-      </a>
-      <a
-        href="https://drive.google.com/file/d/1mSVHxaBoMWGOkCQ73B6QaeRu9B4WWlkg/view"
-        rel="noreferrer"
-        target="_blank"
-      >
-        <img
-          alt="Resume Icon"
-          class="makeStyles-icon-3"
-          src="/path/image"
-        />
-      </a>
-    </div>
-  </div>
-  <div
-    class="makeStyles-search-4"
-  >
-    <div
-      class="MuiFormControl-root MuiTextField-root"
-    >
-      <label
-        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
-        data-shrink="false"
-        for="filled-error"
-        id="filled-error-label"
-      >
-        Zip Code
-      </label>
       <div
-        class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
+        class="makeStyles-contact-3"
       >
-        <input
-          aria-invalid="false"
-          class="MuiInputBase-input MuiOutlinedInput-input"
-          id="filled-error"
-          maxlength="5"
-          placeholder="ex: 97210"
-          type="text"
-          value=""
-        />
-        <fieldset
-          aria-hidden="true"
-          class="PrivateNotchedOutline-root-6 MuiOutlinedInput-notchedOutline"
+        <a
+          href="https://github.com/kevinfiero/weather-app"
+          rel="noreferrer"
+          target="_blank"
         >
-          <legend
-            class="PrivateNotchedOutline-legendLabelled-8"
-          >
-            <span>
-              Zip Code
-            </span>
-          </legend>
-        </fieldset>
+          <img
+            alt="Github Icon"
+            class="makeStyles-icon-4"
+            src="/path/image"
+          />
+        </a>
+        <a
+          href="https://www.linkedin.com/in/kevinfiero/"
+          rel="noreferrer"
+          target="_blank"
+        >
+          <img
+            alt="LinkedIn Icon"
+            class="makeStyles-icon-4"
+            src="/path/image"
+          />
+        </a>
+        <a
+          href="https://drive.google.com/file/d/1mSVHxaBoMWGOkCQ73B6QaeRu9B4WWlkg/view"
+          rel="noreferrer"
+          target="_blank"
+        >
+          <img
+            alt="Resume Icon"
+            class="makeStyles-icon-4"
+            src="/path/image"
+          />
+        </a>
       </div>
     </div>
-    <button
-      class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-button-5 MuiButton-containedPrimary Mui-disabled Mui-disabled"
-      disabled=""
-      tabindex="-1"
-      type="submit"
+    <div
+      class="makeStyles-search-5"
     >
-      <span
-        class="MuiButton-label"
+      <div
+        class="MuiFormControl-root MuiTextField-root"
       >
-        Add
-      </span>
-    </button>
-  </div>
-  <div
-    class="makeStyles-toggle-10"
-  >
-    <span
-      class="makeStyles-temp-11"
-    >
-      °C
-    </span>
-    <span
-      class="MuiSwitch-root makeStyles-toggle-10"
-    >
-      <span
-        aria-disabled="false"
-        class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-15 MuiSwitch-switchBase MuiSwitch-colorPrimary WithStyles(ForwardRef(Switch))-colorPrimary-12 PrivateSwitchBase-checked-16 Mui-checked"
-        data-testid="toggle"
-      >
-        <span
-          class="MuiIconButton-label"
+        <label
+          class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+          data-shrink="false"
+          for="filled-error"
+          id="filled-error-label"
+        >
+          Zip Code
+        </label>
+        <div
+          class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
         >
           <input
-            checked=""
-            class="PrivateSwitchBase-input-18 MuiSwitch-input"
-            name="checkedB"
-            type="checkbox"
+            aria-invalid="false"
+            class="MuiInputBase-input MuiOutlinedInput-input"
+            id="filled-error"
+            maxlength="5"
+            placeholder="ex: 97210"
+            type="text"
             value=""
           />
+          <fieldset
+            aria-hidden="true"
+            class="PrivateNotchedOutline-root-7 MuiOutlinedInput-notchedOutline"
+          >
+            <legend
+              class="PrivateNotchedOutline-legendLabelled-9"
+            >
+              <span>
+                Zip Code
+              </span>
+            </legend>
+          </fieldset>
+        </div>
+      </div>
+      <button
+        class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-button-6 MuiButton-containedPrimary Mui-disabled Mui-disabled"
+        disabled=""
+        tabindex="-1"
+        type="submit"
+      >
+        <span
+          class="MuiButton-label"
+        >
+          Add
+        </span>
+      </button>
+    </div>
+    <div
+      class="makeStyles-toggle-11"
+    >
+      <span
+        class="makeStyles-temp-12"
+      >
+        °C
+      </span>
+      <span
+        class="MuiSwitch-root makeStyles-toggle-11"
+      >
+        <span
+          aria-disabled="false"
+          class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-16 MuiSwitch-switchBase MuiSwitch-colorPrimary WithStyles(ForwardRef(Switch))-colorPrimary-13 PrivateSwitchBase-checked-17 Mui-checked"
+          data-testid="toggle"
+        >
           <span
-            class="MuiSwitch-thumb WithStyles(ForwardRef(Switch))-thumb-14"
+            class="MuiIconButton-label"
+          >
+            <input
+              checked=""
+              class="PrivateSwitchBase-input-19 MuiSwitch-input"
+              name="checkedB"
+              type="checkbox"
+              value=""
+            />
+            <span
+              class="MuiSwitch-thumb WithStyles(ForwardRef(Switch))-thumb-15"
+            />
+          </span>
+          <span
+            class="MuiTouchRipple-root"
           />
         </span>
         <span
-          class="MuiTouchRipple-root"
+          class="MuiSwitch-track WithStyles(ForwardRef(Switch))-track-14"
         />
       </span>
       <span
-        class="MuiSwitch-track WithStyles(ForwardRef(Switch))-track-13"
-      />
-    </span>
-    <span
-      class="makeStyles-temp-11"
-    >
-      °F
-    </span>
+        class="makeStyles-temp-12"
+      >
+        °F
+      </span>
+    </div>
+    <div
+      class="MuiGrid-root makeStyles-gridContainer-21 MuiGrid-container"
+    />
   </div>
-  <div
-    class="MuiGrid-root makeStyles-gridContainer-20 MuiGrid-container"
-  />
 </DocumentFragment>
 `;

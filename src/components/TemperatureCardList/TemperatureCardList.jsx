@@ -5,10 +5,10 @@ import { Grid, makeStyles } from '@material-ui/core'
 
 const useStyles = makeStyles({
   gridItem: {
-    margin: 10
+    margin: 10,
   },
   gridContainer: {
-    justifyContent: "center"
+    justifyContent: "center",
   }
 })
 

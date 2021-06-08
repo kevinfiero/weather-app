@@ -8,8 +8,12 @@ import Contact from '../../components/Contact/Contact';
 import { makeStyles } from '@material-ui/core';
 
 const useStyles = makeStyles({
+  column: {
+    display: "flex",
+    flexDirection: "column",
+  },
   contact: {
-    float: "right"
+    marginLeft: "auto"
   }
 })
 
@@ -68,7 +72,7 @@ export default function Home() {
   }
 
   return (
-    <>
+    <div className={classes.column}>
       <div className={classes.contact}>
         <Contact />
 
@@ -91,7 +95,7 @@ export default function Home() {
         handleDeleteCard={handleDeleteCard}
         isFahrenheit={isFahrenheit}
       />
-    </>
+    </div>
   )
 }
 

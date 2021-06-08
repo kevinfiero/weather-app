@@ -63,7 +63,7 @@ const ZipCurrentWeather = ({currentWeather, isFahrenheit}) => {
 
       <div className={classes.statCards}>
         <img src={windIcon} className={classes.icons} />
-        <div>{`${wind} mph`}</div>
+        <div>{wind}</div>
       </div>
       </Grid>
     </Card>
@@ -71,7 +71,18 @@ const ZipCurrentWeather = ({currentWeather, isFahrenheit}) => {
 }
 
 ZipCurrentWeather.propTypes = {
-
+  currentWeather: PropTypes.shape({
+    city: PropTypes.string.isRequired,
+    condition: PropTypes.string.isRequired,
+    humidity: PropTypes.number.isRequired,
+    icon: PropTypes.string.isRequired,
+    temperature: PropTypes.number.isRequired,
+    temperatureC: PropTypes.number.isRequired,
+    wind: PropTypes.number.isRequired,
+    windK: PropTypes.number.isRequired,
+    zipCode: PropTypes.string.isRequired
+  }).isRequired, 
+  isFahrenheit: PropTypes.bool.isRequired
 }
 
 export default ZipCurrentWeather

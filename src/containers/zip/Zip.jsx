@@ -17,14 +17,11 @@ const useStyles = makeStyles({
     justifyItems: "center",
     justifyContent: "space-evenly",
     margin: "20px auto",
-    width: "500px"
+    width: "500px",
   },
   column: {
     display: "flex",
     flexDirection: "column",
-  },
-  contact: {
-    float: "right"
   }
 })
 
@@ -70,10 +67,7 @@ const Zip = () => {
   }, [])
 
   return (
-    <>
-      <div className={classes.contact}>
-        <Contact />
-      </div>
+    <div className={classes.column}>
       {!(currentLoading && hourlyLoading) ?
         <div className={classes.column}>
           <div className={classes.row}>
@@ -97,7 +91,7 @@ const Zip = () => {
         </div> :
         <div></div>
       }
-    </>
+    </div>
   )
 }
 
