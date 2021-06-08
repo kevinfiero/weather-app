@@ -47,12 +47,14 @@ export const findWeatherForecast = (zipCode) => {
         })
 
         function readableTime(hours) {
-          if (hours > 0 && hours <= 12) {
+          if (hours > 0 && hours <= 11) {
             return `${hours}AM`
           } else if (hours >= 13 && hours < 24) {
             return `${hours - 12}PM`
-          } else {
+          } else if( hours === 0) {
             return '12AM'
+          } else {
+            return '12PM'
           }
         }
 
