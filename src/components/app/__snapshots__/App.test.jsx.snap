@@ -46,7 +46,7 @@ exports[`App component renders App 1`] = `
       class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-button-2 MuiButton-containedPrimary Mui-disabled Mui-disabled"
       disabled=""
       tabindex="-1"
-      type="button"
+      type="submit"
     >
       <span
         class="MuiButton-label"
