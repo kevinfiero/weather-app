@@ -62,7 +62,7 @@ describe('Home Page Container', () => {
 
   })
 
-  it('Remove City', async () => {
+  it('Remove City By Clicking Delete Button', async () => {
 
     act(() => {
       render(
@@ -96,6 +96,5 @@ describe('Home Page Container', () => {
     return waitFor(() => { expect(screen.queryByText('Ann Arbor')).not.toBeInTheDocument() })
 
   })
-
 
 })

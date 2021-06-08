@@ -56,7 +56,7 @@ const TemperatureCard = ({ weatherInfo, handleDeleteCard, isFahrenheit }) => {
     <div className={styles.grow} >
       <div className={isVisible ? styles.fadeInImage : styles.fadeOutImage}>
         <Card className={classes.card}>
-          <Link to={`/zip/${weatherInfo.zipCode}`} className={classes.link} >
+          <Link data-testid={`cardInfo-${weatherInfo.zipCode}`} to={`/zip/${weatherInfo.zipCode}`} className={classes.link} >
             <h2 className={classes.link}>{weatherInfo.city}</h2>
             <h3>{weatherInfo.zipCode}</h3>
             <CardMedia

@@ -33,7 +33,7 @@ const CityInfo = ({ zip, city, isFahrenheit, handleTemperatureSwitch, loading })
   return (
     <Card className={classes.card}>
       {loading ? <h2 className = {classes.invisible}>city</h2> : <h2>{city}</h2>}
-      {loading ? <h3 className = {classes.invisible}>zip</h3> : <h3>{zip}</h3>}
+      {loading ? <h3 className = {classes.invisible}>zip</h3> : <h3 data-testid={`hourlyInfoZip-${zip}`}>{zip}</h3>}
       <Toggle
         isFahrenheit={isFahrenheit}
         handleTemperatureSwitch={handleTemperatureSwitch}
