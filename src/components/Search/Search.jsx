@@ -15,7 +15,7 @@ const useStyles = makeStyles({
   }
 })
 
-const Search = ({ zipCode, zipCodeTextError, zipCodeSubmitError, zipCodeTextErrorMessage, zipCodeTextChange, handleZipCodeSubmit }) => {
+const Search = ({ zipCode, zipCodeTextError, zipCodeSubmitError, zipCodeTextErrorMessage, zipCodeTextChange, handleZipCodeSubmit, handleKeypress }) => {
   const classes = useStyles();
   return (
     <div className={classes.search}>
@@ -29,11 +29,14 @@ const Search = ({ zipCode, zipCodeTextError, zipCodeSubmitError, zipCodeTextErro
         placeholder="ex: 97210"
         helperText={zipCodeTextErrorMessage}
         error={zipCodeTextError} 
+        onKeyPress={handleKeypress} 
+
         />
 
       <Button 
+      type="submit"
         className={classes.button}
-        onClick={handleZipCodeSubmit} 
+        onClick={handleZipCodeSubmit}
         variant="contained" 
         color="primary" 
         disabled={zipCodeSubmitError}>

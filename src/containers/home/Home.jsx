@@ -52,6 +52,12 @@ export default function Home() {
       })
   }
 
+  const handleKeypress = e => {
+  if (e.which === 13) {
+    handleZipCodeSubmit();
+  }
+};
+
   const handleDeleteCard = (zip) => {
     setCurrentWeatherArray(currentWeatherArray.filter((e) => e.zipCode !== zip));
   }
@@ -65,6 +71,7 @@ export default function Home() {
         zipCodeTextErrorMessage={zipCodeTextErrorMessage}
         zipCodeTextChange={zipCodeTextChange}
         handleZipCodeSubmit={handleZipCodeSubmit}
+        handleKeypress={handleKeypress}
       />
       <Toggle 
       isFahrenheit={isFahrenheit}
