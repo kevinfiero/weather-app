@@ -31,7 +31,7 @@ module.exports = {
     new webpack.EnvironmentPlugin(env),
     new CopyPlugin({
       patterns: [{ from: 'public' }],
-    }),
+    })
   ],
   resolve: {
     extensions: ['.js', '.jsx'],
