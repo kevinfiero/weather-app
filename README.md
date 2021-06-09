@@ -5,9 +5,9 @@ This app was created to explore and practice improving the user experience of my
 
 ## Key Features
 * This application is a JavaScript React application that relies on hooks to store state within containers. Components are used to display this state on the page. React Router was used to navigate between pages.
-* Material UI was used for components such as the search bar, toggle, information cards, and grids. This library allows developers to use pre-canned UI elements and customize them using their API. Instead of using a style sheet (.CSS file), Material UI uses JavaScript to pass props into components.
+* [Material UI](https://material-ui.com/) was used for components such as the search bar, toggle, information cards, and grids. This library allows developers to use pre-canned UI elements and customize them using their API. Instead of using a style sheet (.CSS file), Material UI uses JavaScript to pass props into components.
 * Animations were used in conjunction with the Material UI library to give an appearance of information cards fading in and out when being added and deleted. Additionally, cards on the Home page will grow and shrink if hovered over for additional user interaction.
-* The OpenWeatherMap API was used to pull in weather data to display on the information cards. There is one API call for current weather and another for details every three hours. This data was munged to be used effectively in this application. For example, logic was used so that the time display on the hourly cards is in the local time zone.
+* The [OpenWeatherMap API](https://openweathermap.org/api) was used to pull in weather data to display on the information cards. There is one API call for current weather and another for details every three hours. This data was munged to be used effectively in this application. For example, logic was used so that the time display on the hourly cards is in the local time zone.
 * Custom error handling was implemented to prevent the application from exhibiting unexpected behavior when the user types in a desired zip code. Here are the various edge cases:
   * The _Add_ button will remain disabled unless the following conditions occur:
     * Five numeric characters are typed into the box.
