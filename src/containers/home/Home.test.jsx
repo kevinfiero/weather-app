@@ -29,8 +29,6 @@ describe('Home Page Container', () => {
 
     waitFor(() => { fireEvent.click(addButton) })
 
-    await new Promise((r) => setTimeout(r, 4500));
-
     return waitFor(() => { expect(screen.getByText('Middletown')).toBeInTheDocument() })
 
   })

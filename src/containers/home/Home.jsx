@@ -28,14 +28,15 @@ export default function Home() {
   const [isFahrenheit, setIsFahrenheit] = useState(true);
 
   useEffect(() => {
-    zipCodeErrorHandler(zipCode, setZipCodeTextError, setZipCodeSubmitError, setZipCodeTextErrorMessage, currentWeatherArray);
-
-  }, [zipCode, currentWeatherArray])
-
-  useEffect(() => {
     initializeFahrenheit(setIsFahrenheit);
     initializeWeatherArray(setCurrentWeatherArray);
   }, [])
+
+
+  useEffect(() => {
+    zipCodeErrorHandler(zipCode, setZipCodeTextError, setZipCodeSubmitError, setZipCodeTextErrorMessage, currentWeatherArray);
+
+  }, [zipCode, currentWeatherArray])
 
   const zipCodeTextChange = ({ target }) => {
     setZipCode(target.value);
