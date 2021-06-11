@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Home from '../../containers/home/Home'
-import Zip from '../../containers/zip/Zip'
+import Home from '../home/Home'
+import Zip from '../zip/Zip'
 
 export default function App() {
 

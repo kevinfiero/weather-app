@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom';
 const useStyles = makeStyles({
   card: {
     maxWidth: 345,
-    height: 360,
+    height: 375,
     width: 180,
     direction: "column",
     textAlign: "center",
