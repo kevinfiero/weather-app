@@ -6,8 +6,6 @@ import HourlyCardList from '../../components/HourlyCardList/HourlyCardList';
 import ZipCurrentWeather from '../../components/ZipCurrentWeather/ZipCurrentWeather';
 import { makeStyles } from '@material-ui/core';
 import { initializeFahrenheit, temperatureSwitchLogic } from '../../services';
-import Contact from '../../components/Contact/Contact';
-
 
 const useStyles = makeStyles({
   row: {
